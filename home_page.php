@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			Welcome to Express Airlines
+			Welcome to Expres Airlines
 		</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
