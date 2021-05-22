@@ -23,20 +23,11 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.jpg"/> 
+	<body style='background-image: url("images/shutterstock_1.jpg");background-repeat: no-repeat, repeat;background-color: #cccccc;'>
+		<img class="logo" src="images/shutterstock_22.png"/> 
 		<h1 id="title">
-			AADITH AIRLINES
+			Threya Airlines
 		</h1>
-		<div>
-			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-				<li><a href="login_page.php"><i class="fa fa-ticket" aria-hidden="true"></i> Book Tickets</a></li>
-				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
-				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
-				<li><a href="login_page.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
-			</ul>
-		</div>
 		<br>
 		<br>
 		<br>
@@ -47,9 +38,10 @@
 				<input type="text" name="username" placeholder="Enter your username" required><br><br>
 				<strong>Password:</strong><br>
 				<input type="password" name="password" placeholder="Enter your password" required><br><br>
+				<div style="display: none;">
 				<strong>User Type:</strong><br>
 				Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
-				<br>
+				</div>
 				<?php
 					if(isset($_GET['msg']) && $_GET['msg']=='failed')
 					{
