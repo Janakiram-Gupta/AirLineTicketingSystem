@@ -7,7 +7,6 @@
 	else{
 		$_SESSION['flight_no']='';
 	}
-	print_r($_SESSION);//exit;
 ?>
 <html>
 	<head>
@@ -36,6 +35,11 @@
 		<h1 id="title">
 			Threya Airlines
 		</h1>
+		<div>
+			<ul>
+				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+			</ul>
+		</div>
 		<br>
 		<br>
 		<br>

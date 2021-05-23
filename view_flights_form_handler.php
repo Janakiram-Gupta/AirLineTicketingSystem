@@ -36,6 +36,11 @@
 		<h1 id="title">
 			Threya Airlines
 		</h1>
+		<div>
+			<ul>
+				<li><a href="home_page.php">Back</a></li>
+			</ul>
+		</div>
 		<h2 style="margin-left: 4%;">AVAILABLE FLIGHTS</h2>
 		<div style="margin-left: 5%;">
 		<?php
@@ -92,7 +97,6 @@
 					$count=1;
 					$_SESSION['count']=$count;
 					$_SESSION['journey_date']=$dep_date;
-					print_r($_SESSION);//exit;
 					require_once('Database Connection file/mysqli_connect.php');
 					if($class=="economy")
 					{

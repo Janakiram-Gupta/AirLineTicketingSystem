@@ -36,17 +36,17 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.jpg"/> 
+	<body style='background-color: #0077c82e;'>
+		<img class="logo" src="images/shutterstock_22.png"/> 
 		<h1 id="title">
 			Threya Airlines
 		</h1>
 		<div>
 			<ul>
 				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
+		<div style="margin-left: 5%;">
 		<?php
 		//print_r($_SESSION); 
 		echo "<h2>Selected flight details are</h2>";
@@ -157,6 +157,7 @@
 				echo "<input type=\"submit\" value=\"Submit Travel/Ticket Details\" name=\"Submit\">";
 				echo "</form>";
 			?>
+			</div>
 		<!--Following data fields were empty!
 			...
 			ADD VIEW FLIGHT DETAILS AND VIEW JETS/ASSETS DETAILS for ADMIN
