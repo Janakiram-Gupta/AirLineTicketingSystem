@@ -1,7 +1,5 @@
 <?php
 	session_start();
-	session_destroy();
-	session_start();
 ?>
 <html>
 	<head>
@@ -31,18 +29,17 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body style='background-image: url("images/shutterstock_1.jpg");background-repeat: no-repeat, repeat;background-color: #cccccc;'>
+	<body>
 		<img class="logo" src="images/shutterstock_22.png"/> 
 		<h1 id="title">
 			Threya Airlines
 		</h1>
 		<div>
 			<ul>
-				<li><a href="home_page.php">Back</a></li>
+				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 			</ul>
 		</div>
-		<h2 style="margin-left: 4%;">AVAILABLE FLIGHTS</h2>
-		<div style="margin-left: 5%;">
+		<h2>AVAILABLE FLIGHTS</h2>
 		<?php
 			if(isset($_POST['Search']))
 			{
@@ -112,8 +109,6 @@
 						}
 						else
 						{
-							$select_flight_count = true;
-							$sel = '';
 							echo "<form action=\"login_page.php\" method=\"post\">";
 							echo "<table cellpadding=\"10\"";
 							echo "<tr><th>Flight No.</th>
@@ -127,7 +122,7 @@
 							<th>Select</th>
 							</tr>";
 							while(mysqli_stmt_fetch($stmt)) {
-        						$output =  "<tr>
+        						echo "<tr>
         						<td>".$flight_no."</td>
         						<td>".$from_city."</td>
 								<td>".$to_city."</td>
@@ -135,21 +130,12 @@
 								<td>".$departure_time."</td>
 								<td>".$arrival_date."</td>
 								<td>".$arrival_time."</td>
-								<td>&#x20b9; ".$price_economy."</td>";
-								if($select_flight_count){
-									$sel = 'checked';
-								}
-								else{
-								$sel = '';
-								}
-								$output .="
-								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\" ".$sel." ></td>
+								<td>&#x20b9; ".$price_economy."</td>
+								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\"></td>
         						</tr>";
-								echo $output;
-								$select_flight_count = false;
     						}
     						echo "</table> <br>";
-    						echo "<input type=\"submit\" value=\"Book\" name=\"Select\">";
+    						echo "<input type=\"submit\" value=\"Select Flight\" name=\"Select\">";
     						echo "</form>";
     					}
 					}
@@ -193,7 +179,7 @@
         						</tr>";
     						}
     						echo "</table> <br>";
-    						echo "<input type=\"submit\" value=\"Book\" name=\"Select\">";
+    						echo "<input type=\"submit\" value=\"Select Flight\" name=\"Select\">";
     						echo "</form>";
     					}
 					}	
@@ -219,6 +205,5 @@
 				echo "Search request not received";
 			}
 		?>
-		</div>
 	</body>
 </html>

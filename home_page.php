@@ -38,8 +38,47 @@
 		<h1 id="title">
 			Threya Airlines
 		</h1>
+		<div>
+			<ul>
+				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li>
+					<?php
+						if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Customer')
+						{
+							echo "<a href=\"book_tickets.php\"><i class=\"fa fa-ticket\" aria-hidden=\"true\"></i> Book Tickets</a>";
+						}
+						else if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Administrator')
+						{
+							echo "<a href=\"admin_ticket_message.php\"><i class=\"fa fa-ticket\" aria-hidden=\"true\"></i> Book Tickets</a>";
+						}
+						else
+						{
+							echo "<a href=\"login_page.php\"><i class=\"fa fa-ticket\" aria-hidden=\"true\"></i> Book Tickets</a>";
+						}
+					?>
+				</li>
+				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
+				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
+				<li>
+					<?php
+						if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Customer')
+						{
+							echo "<a href=\"customer_homepage.php\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Login</a>";
+						}
+						else if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Administrator')
+						{
+							echo "<a href=\"admin_homepage.php\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Login</a>";
+						}
+						else
+						{
+							echo "<a href=\"login_page.php\"><i class=\"fa fa-sign-in\" aria-hidden=\"true\"></i> Login</a>";
+						}
+					?>
+				</li>
+			</ul>
+		</div>
 		<div style="margin-left: 10px; margin-top: 2%;width: 38%;border: 5px solid #0077c8;padding: 20px;border-radius: 25px;">
-			<form action="view_flights_form_handler.php" method="post">
+			<form action="login_page.php" method="post">
 				<table cellpadding="5">
 					<tr>
 						<td class="fix_table">Departure airport</td>
@@ -100,7 +139,7 @@
 					</tr>
 				</table>
 				<br>
-				<input type="submit" value="Search for Available Flights" name="Search">
+				<input type="submit" value="Login and Search for Available Flights" name="Search">
 			</form>	
 		</div>
 		<!--check out addling local host in links and other places

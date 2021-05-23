@@ -2,7 +2,7 @@ h1{
 	font-family: sans-serif;
 	font-style: bold;
 	font-size: 50pt;
-	color: #0077c8;
+	color: orange;
 }
 #title{
 	display: inline;
@@ -80,7 +80,7 @@ h2{
 .welcome_text{
 	font-family: sans-serif;
 	font-size: 30pt;
-	color: #0077c8;
+	color: orange;
 	position: absolute;
 }
 .admin_func:hover{
