@@ -20,58 +20,60 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+	<body style='background-color: #0077c82e;'>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 30%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 				<li><a href="login_page.php"><i class="fa fa-ticket" aria-hidden="true"></i> Book Tickets</a></li>
-				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
-				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
 				<li><a href="login_page.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
 			</ul>
 		</div>
 		<br>
 		<form class="center_form" action="new_user_form_handler.php" method="POST" id="new_user_from">
-			<h2><i class="fa fa-user-plus" aria-hidden="true"></i> CREATE NEW USER ACCOUNT</h2>
-			<br>
-			<table cellpadding='10'>
-				<strong>ENTER LOGIN DETAILS</strong>
-				<tr>
-					<td>Enter a valid username  </td>
-					<td><input type="text" name="username" required><br><br></td>
-				</tr>
-				<tr>
-					<td>Enter your desired password  </td>
-					<td><input type="password" name="password" required><br><br></td>
-				</tr>
-				<tr>
-					<td>Enter your email ID</td>
-					<td><input type="text" name="email" required><br><br></td>
-				</tr>
-			</table>
-			<br>
-			<table cellpadding='10'>
-				<strong>ENTER CUSTOMER'S PERSONAL DETAILS</strong>
-				<tr>
-					<td>Enter your name  </td>
-					<td><input type="text" name="name" required><br><br></td>
-				</tr>
-				<tr>
-					<td>Enter your phone no.</td>
-					<td><input type="text" name="phone_no" required><br><br></td>
-				</tr>
-				<tr>
-					<td>Enter your address</td>
-					<td><input type="text" name="address" required><br><br></td>
-				</tr>
-			</table>
-			<br>
-			<input type="submit" value="Submit" name="Submit">
-			<br>
+			<div style="margin-left: 30%;">
+				<h2><i class="fa fa-user-plus" aria-hidden="true"></i> CREATE NEW USER ACCOUNT</h2>
+				<br>
+				<table cellpadding='10'>
+					<strong>ENTER LOGIN DETAILS</strong>
+					<tr>
+						<td>Enter a valid username  </td>
+						<td><input type="text" name="username" required><br><br></td>
+					</tr>
+					<tr>
+						<td>Enter your desired password  </td>
+						<td><input type="password" name="password" required><br><br></td>
+					</tr>
+					<tr>
+						<td>Enter your email ID</td>
+						<td><input type="text" name="email" required><br><br></td>
+					</tr>
+				</table>
+				<br>
+				<table cellpadding='10'>
+					<strong>ENTER CUSTOMER'S PERSONAL DETAILS</strong>
+					<tr>
+						<td>Enter your name  </td>
+						<td><input type="text" name="name" required><br><br></td>
+					</tr>
+					<tr>
+						<td>Enter your phone no.</td>
+						<td><input type="text" name="phone_no" required><br><br></td>
+					</tr>
+					<tr>
+						<td>Enter your address</td>
+						<td><input type="text" name="address" required><br><br></td>
+					</tr>
+				</table>
+				<br>
+				<input type="submit" value="Submit" name="Submit">
+				<br>
+			</div>	
 		</form>
 	</body>
 </html>

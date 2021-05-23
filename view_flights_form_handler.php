@@ -29,17 +29,21 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+	<body style='background-color: #0077c82e;'>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 45%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 			</ul>
 		</div>
-		<h2>AVAILABLE FLIGHTS</h2>
+		<h2 style="margin-left: 14%;">AVAILABLE FLIGHTS</h2>
+		<h3 style="margin-left: 13%;font-size: 13px;">Please find the below list of available flights</h3>
+		<div style="margin-left: 15%;">
 		<?php
 			if(isset($_POST['Search']))
 			{
@@ -119,7 +123,6 @@
 							<th>Arrival Date</th>
 							<th>Arrival Time</th>
 							<th>Price(Economy)</th>
-							<th>Select</th>
 							</tr>";
 							while(mysqli_stmt_fetch($stmt)) {
         						echo "<tr>
@@ -131,7 +134,6 @@
 								<td>".$arrival_date."</td>
 								<td>".$arrival_time."</td>
 								<td>&#x20b9; ".$price_economy."</td>
-								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\"></td>
         						</tr>";
     						}
     						echo "</table> <br>";
@@ -163,7 +165,6 @@
 							<th>Arrival Date</th>
 							<th>Arrival Time</th>
 							<th>Price(Business)</th>
-							<th>Select</th>
 							</tr>";
 							while(mysqli_stmt_fetch($stmt)) {
         						echo "<tr>
@@ -175,7 +176,6 @@
 								<td>".$arrival_date."</td>
 								<td>".$arrival_time."</td>
 								<td>&#x20b9; ".$price_business."</td>
-								<td><input type=\"radio\" name=\"select_flight\" value=".$flight_no."></td>
         						</tr>";
     						}
     						echo "</table> <br>";
@@ -205,5 +205,6 @@
 				echo "Search request not received";
 			}
 		?>
+		</div>
 	</body>
 </html>

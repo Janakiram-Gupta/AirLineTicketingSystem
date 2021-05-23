@@ -37,13 +37,15 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 42%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 			</ul>
 		</div>
 		<div style="margin-left: 5%;">

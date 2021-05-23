@@ -20,21 +20,21 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+	<body style='background-color: #0077c82e;'>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 30%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 				<li><a href="login_page.php"><i class="fa fa-ticket" aria-hidden="true"></i> Book Tickets</a></li>
-				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
-				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
 				<li><a href="login_page.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
 			</ul>
 		</div>
 		<br>
-		<h3>New user successfully registered! Login into your account to book tickets.</h3>
+		<h3 style="margin-left: 19%;">New user successfully registered! Login into your account to book tickets.</h3>
 	</body>
 </html>

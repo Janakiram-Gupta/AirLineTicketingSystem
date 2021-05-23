@@ -23,45 +23,47 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
-	<body>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+	<body style='background-color: #0077c82e;'>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 32%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 				<li><a href="login_page.php"><i class="fa fa-ticket" aria-hidden="true"></i> Book Tickets</a></li>
-				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
-				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
 				<li><a href="login_page.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
 			</ul>
 		</div>
 		<br>
 		<br>
 		<br>
-		<form class="float_form" style="padding-left: 40px" action="login_handler.php" method="POST">
-			<fieldset>
-				<legend>Login Details:-</legend>
-				<strong>Username:</strong><br>
-				<input type="text" name="username" placeholder="Enter your username" required><br><br>
-				<strong>Password:</strong><br>
-				<input type="password" name="password" placeholder="Enter your password" required><br><br>
-				<strong>User Type:</strong><br>
-				Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
+		<div style="margin-left: 35%;">
+			<form class="float_form" style="padding-left: 40px" action="login_handler.php" method="POST">
+				<fieldset>
+					<legend>Login Details:-</legend>
+					<strong>Username:</strong><br>
+					<input type="text" name="username" placeholder="Enter your username" required><br><br>
+					<strong>Password:</strong><br>
+					<input type="password" name="password" placeholder="Enter your password" required><br><br>
+					<strong>User Type:</strong><br>
+					Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
+					<br>
+					<?php
+						if(isset($_GET['msg']) && $_GET['msg']=='failed')
+						{
+							echo "<br>
+							<strong style='color:red'>Invalid Username/Password</strong>
+							<br><br>";
+						}
+					?>
+					<input type="submit" name="Login" value="Login">
+				</fieldset>
 				<br>
-				<?php
-					if(isset($_GET['msg']) && $_GET['msg']=='failed')
-					{
-						echo "<br>
-						<strong style='color:red'>Invalid Username/Password</strong>
-						<br><br>";
-					}
-				?>
-				<input type="submit" name="Login" value="Login">
-			</fieldset>
-			<br>
-			<a href="new_user.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Create New User Account?</a>
-		</form>
+				<a href="new_user.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Create New User Account?</a>
+			</form>
+		</div>
 	</body>
 </html>

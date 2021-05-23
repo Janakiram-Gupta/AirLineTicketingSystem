@@ -34,13 +34,15 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-image: url("images/shutterstock_1.jpg");background-repeat: no-repeat, repeat;background-color: #cccccc;'>
-		<img class="logo" src="images/shutterstock_22.png"/> 
-		<h1 id="title">
-			Threya Airlines
-		</h1>
+		<div style="margin-left: 25%;">
+			<img class="logo" src="images/shutterstock_22.png"/> 
+			<h1 id="title">
+				Threya Airlines
+			</h1>
+		</div>
 		<div>
 			<ul>
-				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 32%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 				<li>
 					<?php
 						if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Customer')
@@ -57,8 +59,6 @@
 						}
 					?>
 				</li>
-				<li><a href="home_page.php"><i class="fa fa-plane" aria-hidden="true"></i> About Us</a></li>
-				<li><a href="home_page.php"><i class="fa fa-phone" aria-hidden="true"></i> Contact Us</a></li>
 				<li>
 					<?php
 						if(isset($_SESSION['login_user'])&&$_SESSION['user_type']=='Customer')
@@ -77,7 +77,7 @@
 				</li>
 			</ul>
 		</div>
-		<div style="margin-left: 10px; margin-top: 2%;width: 38%;border: 5px solid #0077c8;padding: 20px;border-radius: 25px;">
+		<div style="margin-left: 26%; margin-top: 2%;width: 38%;border: 5px solid #0077c8;padding: 20px;border-radius: 25px;">
 			<form action="view_flights_form_handler1.php" method="post">
 				<table cellpadding="5">
 					<tr>
