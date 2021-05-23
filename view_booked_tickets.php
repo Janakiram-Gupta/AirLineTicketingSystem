@@ -42,6 +42,7 @@
 		<div>
 			<ul>
 				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li><a href="cancel_booked_tickets.php">Cancel your booked tickets</a></li>
 			</ul>
 		</div>
 		<h2>VIEW BOOKED FLIGHT TICKETS</h2>

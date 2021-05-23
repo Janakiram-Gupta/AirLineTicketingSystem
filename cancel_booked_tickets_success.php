@@ -31,6 +31,7 @@
 		<div>
 			<ul>
 				<li><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li><a href="view_booked_tickets.php">View your booked tickets</a></li>
 			</ul>
 		</div>
 		<h2>CANCEL BOOKED TICKETS</h2>
