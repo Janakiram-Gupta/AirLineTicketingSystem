@@ -56,8 +56,10 @@
 		?>
 		<div style="margin-left: 5%;">
 		<?php
-			if(isset($_POST['Login']))
+		print_r($_SESSION);exit;
+			if(isset($_SESSION['flight_no']))
 			{
+				echo "I am here";exit;
 				$data_missing=array();
 				if(empty($_POST['origin']))
 				{
@@ -101,7 +103,7 @@
 				{
 					$class=trim($_POST['class']);
 				}
-
+print_r($data_missing);exit;
 				if(empty($data_missing))
 				{
 					$_SESSION['no_of_pass']=$no_of_pass;

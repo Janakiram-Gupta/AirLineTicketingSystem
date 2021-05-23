@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	session_destroy();
+	session_start();
 ?>
 <html>
 	<head>
@@ -34,6 +36,11 @@
 		<h1 id="title">
 			Threya Airlines
 		</h1>
+		<div>
+			<ul>
+				<li><a href="home_page.php">Back</a></li>
+			</ul>
+		</div>
 		<h2 style="margin-left: 4%;">AVAILABLE FLIGHTS</h2>
 		<div style="margin-left: 5%;">
 		<?php
@@ -105,6 +112,8 @@
 						}
 						else
 						{
+							$select_flight_count = true;
+							$sel = '';
 							echo "<form action=\"login_page.php\" method=\"post\">";
 							echo "<table cellpadding=\"10\"";
 							echo "<tr><th>Flight No.</th>
@@ -118,7 +127,7 @@
 							<th>Select</th>
 							</tr>";
 							while(mysqli_stmt_fetch($stmt)) {
-        						echo "<tr>
+        						$output =  "<tr>
         						<td>".$flight_no."</td>
         						<td>".$from_city."</td>
 								<td>".$to_city."</td>
@@ -126,9 +135,18 @@
 								<td>".$departure_time."</td>
 								<td>".$arrival_date."</td>
 								<td>".$arrival_time."</td>
-								<td>&#x20b9; ".$price_economy."</td>
-								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\"></td>
+								<td>&#x20b9; ".$price_economy."</td>";
+								if($select_flight_count){
+									$sel = 'checked';
+								}
+								else{
+								$sel = '';
+								}
+								$output .="
+								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\" ".$sel." ></td>
         						</tr>";
+								echo $output;
+								$select_flight_count = false;
     						}
     						echo "</table> <br>";
     						echo "<input type=\"submit\" value=\"Book\" name=\"Select\">";
