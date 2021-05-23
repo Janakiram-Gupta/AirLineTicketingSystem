@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2017 at 04:09 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: May 23, 2021 at 09:10 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -58,7 +57,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `pwd`, `staff_id`, `name`, `email`) VALUES
-('roshan', 'passpass', '101', 'Harry Roshan', 'harryroshan1997@gmail.com');
+('threya', 'passpass', '1', 'Threya Reddy', 'threya@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -80,12 +79,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `pwd`, `name`, `email`, `phone_no`, `address`) VALUES
-('aadith', 'aadith007', 'aadith_name', 'aadith_email', '12345', 'aadith_address'),
-('Apple', 'abhishek', 'Abhijeeth', 'gmail@gmail.com', '+9185564764', 'hgsjhgdjfdjdgf'),
+('akhil', 'akhi12', 'akhil madishetty', 'akhil@gmail.com', '6789', 'adhnj23'),
 ('blah', 'blah blah', 'blah', 'blah@gmail.com', '993498570', 'blah'),
-('charles', 'charles_pass', 'Charles', 'charles@gmail.com', '9090909090', 'Bangalore'),
-('chirag008', 'chirag', 'Chirag G', 'chirag@gmail.com', '8080808080', 'Kuldlu Gate'),
-('harryroshan', 'passpasshello', 'Harry Roshan', 'harryroshan1997@gmai', '9845713736', '#381, 1st E Main,');
+('guptha', 'guptha007', 'janakiram guptha', 'jana@gmail.com', '124566', 'ajshdy46'),
+('srija', 'sri9', 'srija reddy', 'srija@gmail.com', '12345', 'asdf12');
 
 -- --------------------------------------------------------
 
@@ -113,11 +110,26 @@ CREATE TABLE `flight_details` (
 --
 
 INSERT INTO `flight_details` (`flight_no`, `from_city`, `to_city`, `departure_date`, `arrival_date`, `departure_time`, `arrival_time`, `seats_economy`, `seats_business`, `price_economy`, `price_business`, `jet_id`) VALUES
-('AA101', 'bangalore', 'mumbai', '2017-12-01', '2017-12-02', '21:00:00', '01:00:00', 195, 96, 5000, 7500, '10001'),
-('AA102', 'bangalore', 'mumbai', '2017-12-01', '2017-12-01', '10:00:00', '12:00:00', 200, 73, 2500, 3000, '10002'),
-('AA103', 'bangalore', 'chennai', '2017-12-03', '2017-12-03', '17:00:00', '17:45:00', 150, 75, 1200, 1500, '10004'),
-('AA104', 'bangalore', 'mysore', '2017-12-04', '2017-12-04', '09:00:00', '09:17:00', 37, 4, 500, 750, '10003'),
-('AA106', 'bangalore', 'hyderabad', '2017-12-01', '2017-12-01', '13:00:00', '14:00:00', 150, 75, 3000, 3750, '10004');
+('AA1003', 'HYDERABAD', 'DUBAI', '2021-05-26', '2021-05-27', '05:30:00', '08:30:00', 150, 80, 3300, 6500, '10002'),
+('AA1004', 'DELHI', 'NEW YORK', '2021-05-23', '2021-05-23', '09:00:00', '00:00:00', 100, 50, 48000, 58000, '10003'),
+('AA1004', 'DELHI', 'DUBAI', '2021-05-26', '2021-05-26', '09:00:00', '12:40:00', 180, 50, 4500, 6800, '10001'),
+('AA1008', 'HYDERABAD', 'SINGAPORE', '2021-05-23', '2021-05-23', '09:00:00', '13:25:00', 150, 50, 4800, 5800, '1409'),
+('AA1009', 'HYDERABAD', 'SINGAPORE', '2021-05-23', '2021-05-23', '05:00:00', '09:25:00', 200, 50, 4900, 5800, '1404'),
+('AC1004', 'NEW YORK', 'TORONTO', '2021-05-23', '2021-05-23', '03:00:00', '04:30:00', 100, 50, 48000, 58000, '1401'),
+('AC1005', 'MUMBAI', 'MONTREAL', '2021-05-23', '2021-05-23', '04:00:00', '23:45:00', 180, 50, 58000, 68000, '1402'),
+('AC1009', 'MUMBAI', 'TORONTO', '2021-05-23', '2021-05-23', '02:00:00', '20:45:00', 120, 50, 42000, 58000, '1403'),
+('AC102', 'DUBAI', 'TORONTO', '2021-05-22', '2021-05-22', '03:40:00', '17:40:00', 200, 50, 32000, 42000, '10008'),
+('AC108', 'NEW YORK', 'TORONTO', '2021-05-27', '2021-05-27', '05:00:00', '06:30:00', 120, 60, 5500, 7000, '10002'),
+('AC109', 'DELHI', 'NEW YORK', '2021-05-26', '2021-05-27', '01:00:00', '17:00:00', 120, 30, 38000, 46000, '10002'),
+('AI1002', 'HYDERABAD', 'DUBAI', '2021-05-22', '2021-05-22', '05:30:00', '08:30:00', 130, 50, 2300, 5500, '10001'),
+('AI1003', 'DELHI', 'DUBAI', '2021-05-22', '2021-05-22', '09:00:00', '12:40:00', 100, 80, 2800, 5800, '10001'),
+('BA1006', 'HYDERABAD', 'DUBAI', '2021-05-27', '2021-05-28', '05:30:00', '08:30:00', 200, 80, 2300, 5500, '10001'),
+('BA1009', 'MUMBAI', 'MONTREAL', '2021-05-23', '2021-05-23', '02:00:00', '20:45:00', 150, 50, 42000, 52000, '1501'),
+('BI007', 'MUMBAI', 'TORONTO', '2021-05-23', '2021-05-23', '02:00:00', '20:40:00', 120, 60, 72000, 99000, '10003'),
+('ED1005', 'HYDERABAD', 'DUBAI', '2021-05-27', '2021-05-28', '05:30:00', '08:30:00', 130, 80, 2500, 5800, '10004'),
+('ED1006', 'DUBAI', 'TORONTO', '2021-05-26', '2021-05-27', '03:40:00', '17:40:00', 180, 50, 42000, 55000, '10002'),
+('EI1004', 'HYDERABAD', 'DUBAI', '2021-05-28', '2021-05-29', '08:00:00', '11:00:00', 100, 50, 2000, 5300, '10003'),
+('IA1004', 'HYDERABAD', 'AUSTRALIA', '2021-05-23', '2021-05-23', '05:00:00', '20:00:00', 200, 50, 48000, 58000, '1400');
 
 -- --------------------------------------------------------
 
@@ -161,7 +173,8 @@ INSERT INTO `jet_details` (`jet_id`, `jet_type`, `total_capacity`, `active`) VAL
 ('10002', 'Airbus A380', 275, 'Yes'),
 ('10003', 'ATR', 50, 'Yes'),
 ('10004', 'Boeing 737', 225, 'Yes'),
-('10007', 'Test_Model', 250, 'Yes');
+('10007', 'Test_Model', 250, 'Yes'),
+('AI1089', 'Boeing007', 230, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -233,6 +246,7 @@ INSERT INTO `payment_details` (`payment_id`, `pnr`, `payment_date`, `payment_amo
 ('557778944', '6980157', '2017-11-26', 11700, 'credit card'),
 ('620041544', '1669050', '2017-11-25', 4800, 'debit card'),
 ('665360715', '5421865', '2017-11-28', 15750, 'net banking'),
+('853871109', '5186385', '2021-05-21', 3850, 'credit card'),
 ('862686553', '3027167', '2017-11-25', 10700, 'debit card');
 
 --
@@ -271,14 +285,15 @@ CREATE TABLE `ticket_details` (
 --
 
 INSERT INTO `ticket_details` (`pnr`, `date_of_reservation`, `flight_no`, `journey_date`, `class`, `booking_status`, `no_of_passengers`, `lounge_access`, `priority_checkin`, `insurance`, `payment_id`, `customer_id`) VALUES
-('1669050', '2017-11-25', 'AA104', '2017-12-04', 'business', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '620041544', 'harryroshan'),
-('2369143', '2017-11-26', 'AA101', '2017-12-01', 'business', 'CONFIRMED', 4, 'yes', 'yes', 'yes', '467972527', 'blah'),
-('3027167', '2017-11-25', 'AA101', '2017-12-01', 'economy', 'CONFIRMED', 2, 'no', 'no', 'yes', '862686553', 'aadith'),
-('3773951', '2017-11-25', 'AA104', '2017-12-04', 'economy', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '142539461', 'aadith'),
-('4797983', '2017-11-25', 'AA104', '2017-12-04', 'business', 'CONFIRMED', 3, 'yes', 'no', 'yes', '120000248', 'harryroshan'),
-('5421865', '2017-11-28', 'AA101', '2017-12-01', 'economy', 'CONFIRMED', 3, 'no', 'no', 'no', '665360715', 'harryroshan'),
-('6980157', '2017-11-26', 'AA101', '2017-12-01', 'economy', 'CANCELED', 2, 'yes', 'yes', 'yes', '557778944', 'aadith'),
-('8503285', '2017-11-25', 'AA102', '2017-12-01', 'business', 'CONFIRMED', 2, 'yes', 'yes', 'no', '165125569', 'aadith');
+('1669050', '2017-11-25', NULL, NULL, 'business', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '620041544', 'harryroshan'),
+('2369143', '2017-11-26', NULL, NULL, 'business', 'CONFIRMED', 4, 'yes', 'yes', 'yes', '467972527', 'blah'),
+('3027167', '2017-11-25', NULL, NULL, 'economy', 'CONFIRMED', 2, 'no', 'no', 'yes', '862686553', 'aadith'),
+('3773951', '2017-11-25', NULL, NULL, 'economy', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '142539461', 'aadith'),
+('4797983', '2017-11-25', NULL, NULL, 'business', 'CONFIRMED', 3, 'yes', 'no', 'yes', '120000248', 'harryroshan'),
+('5186385', '2021-05-21', NULL, NULL, 'economy', 'CONFIRMED', 1, 'yes', 'yes', 'yes', '853871109', 'aadith'),
+('5421865', '2017-11-28', NULL, NULL, 'economy', 'CONFIRMED', 3, 'no', 'no', 'no', '665360715', 'harryroshan'),
+('6980157', '2017-11-26', NULL, NULL, 'economy', 'CANCELED', 2, 'yes', 'yes', 'yes', '557778944', 'aadith'),
+('8503285', '2017-11-25', NULL, NULL, 'business', 'CONFIRMED', 2, 'yes', 'yes', 'no', '165125569', 'aadith');
 
 --
 -- Indexes for dumped tables
