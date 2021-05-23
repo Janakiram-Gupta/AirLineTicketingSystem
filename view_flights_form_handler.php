@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	session_destroy();
+	session_start();
 ?>
 <html>
 	<head>
@@ -90,6 +92,7 @@
 					$count=1;
 					$_SESSION['count']=$count;
 					$_SESSION['journey_date']=$dep_date;
+					print_r($_SESSION);//exit;
 					require_once('Database Connection file/mysqli_connect.php');
 					if($class=="economy")
 					{
@@ -105,6 +108,8 @@
 						}
 						else
 						{
+							$select_flight_count = true;
+							$sel = '';
 							echo "<form action=\"login_page.php\" method=\"post\">";
 							echo "<table cellpadding=\"10\"";
 							echo "<tr><th>Flight No.</th>
@@ -118,7 +123,7 @@
 							<th>Select</th>
 							</tr>";
 							while(mysqli_stmt_fetch($stmt)) {
-        						echo "<tr>
+        						$output =  "<tr>
         						<td>".$flight_no."</td>
         						<td>".$from_city."</td>
 								<td>".$to_city."</td>
@@ -126,9 +131,18 @@
 								<td>".$departure_time."</td>
 								<td>".$arrival_date."</td>
 								<td>".$arrival_time."</td>
-								<td>&#x20b9; ".$price_economy."</td>
-								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\"></td>
+								<td>&#x20b9; ".$price_economy."</td>";
+								if($select_flight_count){
+									$sel = 'checked';
+								}
+								else{
+								$sel = '';
+								}
+								$output .="
+								<td><input type=\"radio\" name=\"select_flight\" value=\"".$flight_no."\" ".$sel." ></td>
         						</tr>";
+								echo $output;
+								$select_flight_count = false;
     						}
     						echo "</table> <br>";
     						echo "<input type=\"submit\" value=\"Book\" name=\"Select\">";

@@ -1,5 +1,13 @@
 <?php
 	session_start();
+	if(!empty($_POST['select_flight']))
+		{
+				$_SESSION['flight_no']=$_POST['select_flight'];
+		}
+	else{
+		$_SESSION['flight_no']='';
+	}
+	print_r($_SESSION);//exit;
 ?>
 <html>
 	<head>
