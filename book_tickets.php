@@ -47,7 +47,7 @@
 				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
-		<form action="view_flights_form_handler.php" method="post">
+		<form action="view_flights_form_handler2.php" method="post">
 			<h2>SEARCH FOR AVAILABLE FLIGHTS</h2>
 			<table cellpadding="5">
 				<tr>

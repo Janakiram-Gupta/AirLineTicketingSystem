@@ -179,7 +179,7 @@
         						</tr>";
     						}
     						echo "</table> <br>";
-    						echo "<input type=\"submit\" value=\"Select Flight\" name=\"Select\">";
+    						echo "<input type=\"submit\" value=\"Login to book flight\" name=\"Select\">";
     						echo "</form>";
     					}
 					}	

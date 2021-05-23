@@ -78,7 +78,7 @@
 			</ul>
 		</div>
 		<div style="margin-left: 10px; margin-top: 2%;width: 38%;border: 5px solid #0077c8;padding: 20px;border-radius: 25px;">
-			<form action="login_page.php" method="post">
+			<form action="view_flights_form_handler1.php" method="post">
 				<table cellpadding="5">
 					<tr>
 						<td class="fix_table">Departure airport</td>
@@ -139,7 +139,7 @@
 					</tr>
 				</table>
 				<br>
-				<input type="submit" value="Login and Search for Available Flights" name="Search">
+				<input type="submit" value="Search for Available Flights" name="Search">
 			</form>	
 		</div>
 		<!--check out addling local host in links and other places

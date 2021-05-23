@@ -48,56 +48,12 @@
 		</div>
 		<div style="margin-left: 5%;">
 		<?php
-		//print_r($_SESSION); 
-		echo "<h2>Selected flight details are</h2>";
-		echo "Flight no - " . $_SESSION["flight_no"]. ".<br>";
-		echo "<br><br>";
-		echo "No of passengers - " . $_SESSION["no_of_pass"]. ".<br>";
-		echo "<br><br>";
-		echo "Class - " . $_SESSION["class"]. ".<br>";
-		echo "<br><br>";
-		echo "Journey date - " . $_SESSION["journey_date"]. ".<br>";
-/* 		if(isset($_SESSION["flight_no"])){
-		$_SESSION['flight_no']=$flight_no;}
-			require_once('Database Connection file/mysqli_connect.php');
-			$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time FROM Flight_Details where flight_no=?";
-			$stmt=mysqli_prepare($dbc,$query);
-			mysqli_stmt_bind_param($stmt,"s",$flight_no);
-			mysqli_stmt_execute($stmt);
-			mysqli_stmt_bind_result($stmt,$flight_no,$from_city,$to_city,$departure_date,$departure_time,$arrival_date,$arrival_time);
-			mysqli_stmt_store_result($stmt);
-			echo "<table cellpadding=\"10\"";
-			 */
-							/* echo "<form>";
-								echo "<table cellpadding=\"10\"";
-									echo "<tr><th>Flight No.</th>
-											<th>Origin</th>
-											<th>Destination</th>
-											<th>Departure Date</th>
-											<th>Departure Time</th>
-											<th>Arrival Date</th>
-											<th>Arrival Time</th>
-										</tr>";
-								while($_SESSION) {
-									echo "<tr>
-											<td>".$flight_no."</td>	
-											<td>".$from_city."</td>
-											<td>".$to_city."</td>
-											<td>".$departure_date."</td>
-											<td>".$departure_time."</td>
-											<td>".$arrival_date."</td>
-											<td>".$arrival_time."</td>
-										</tr>";
-								}
-								
-								echo "</table> <br>";
-								echo "</form>"; exit; */
 			
 			$no_of_pass=$_SESSION['no_of_pass'];
 			$class=$_SESSION['class'];
 			$count=$_SESSION['count'];
-			//$flight_no=$_POST['select_flight'];
-			//$_SESSION['flight_no']=$flight_no;
+			$flight_no=$_POST['select_flight'];
+			$_SESSION['flight_no']=$flight_no;
 			//$pass_name=array();
 			echo "<h2>ADD PASSENGERS DETAILS</h2>";
 			echo "<form action=\"add_ticket_details_form_handler.php\" method=\"post\">";
