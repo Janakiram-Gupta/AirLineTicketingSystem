@@ -6,12 +6,17 @@
 		<title>
 			Welcome Administrator
 		</title>
+		<style>
+			td a {
+				font-weight: bold;
+			}	
+		</style>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
 		<div style="margin-left: 20%; height: 85px;">
-			<img class="logo" src="images/shutterstock_22.png"/> 
+			 
 			<h1 id="title">
 				Threya Flight Reservation Services
 			</h1>
@@ -23,7 +28,7 @@
 				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
-		<div style="margin-left: 31%;">
+		<div style="margin-left: 25%;">
 			<h2>Welcome Administrator!</h2>
 			<table cellpadding="5">
 				

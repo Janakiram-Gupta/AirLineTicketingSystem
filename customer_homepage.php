@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	// if($_SESSION['login_user']==null){
-	// 	header('location:home_page.php');
+	// 	header('location:landing_page.php');
 	// }
 ?>
 <html>
@@ -32,13 +32,16 @@
     			border-radius: 4px;
     			padding: 6.5px 75.5px;
 			}
+			td a {
+				font-weight: bold;
+			}
 		</style>
 		<link rel="stylesheet" type="text/css" href="css/style.css"/>
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
 		<div style="margin-left: 20%; height: 85px;">
-			<img class="logo" src="images/shutterstock_22.png"/> 
+			 
 			<h1 id="title">
 				Threya Flight Reservation Services
 			</h1>

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body>
-		<img class="logo" src="images/shutterstock_22.png"/> 
+		 
 		<h1 id="title">
 			Threya Flight Reservation Services
 		</h1>

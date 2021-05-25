@@ -12,7 +12,7 @@
 				$data_missing=array();
 				if(empty($_POST['jet_id']))
 				{
-					$data_missing[]='Jet ID';
+					$data_missing[]='Aircraft ID';
 				}
 				else
 				{
@@ -21,7 +21,7 @@
 
 				if(empty($_POST['jet_type']))
 				{
-					$data_missing[]='Jet Type';
+					$data_missing[]='Aircraft Type';
 				}
 				else
 				{
@@ -30,7 +30,7 @@
 
 				if(empty($_POST['jet_capacity']))
 				{
-					$data_missing[]='Jet Capacity';
+					$data_missing[]='Aircraft Capacity';
 				}
 				else
 				{

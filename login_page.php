@@ -11,6 +11,7 @@
     			border: 1.5px solid #030337;
     			border-radius: 4px;
     			padding: 7px 30px;
+				margin-left: 15px;
 			}
 			input[type=submit] {
 				background-color: #030337;
@@ -25,14 +26,14 @@
 	</head>
 	<body style='background-color: #0077c82e;'>
 		<div style="margin-left: 20%; height: 85px;">
-			<img class="logo" src="images/shutterstock_22.png"/> 
+			 
 			<h1 id="title">
 				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>
 			<ul>
-				<li style="margin-left: 32%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 32%;"><a href="landing_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 				<li><a href="login_page.php"><i class="fa fa-ticket" aria-hidden="true"></i> Book Tickets</a></li>
 				<li><a href="login_page.php"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
 			</ul>
@@ -43,13 +44,14 @@
 		<div style="margin-left: 35%;">
 			<form class="float_form" style="padding-left: 40px" action="login_handler.php" method="POST">
 				<fieldset>
-					<legend>Login Details:-</legend>
-					<strong>Username:</strong><br>
+					<br><legend>Login Details:-</legend>
+					<strong style="margin-left: 15px;">Username:</strong><br>
 					<input type="text" name="username" placeholder="Enter your username" required><br><br>
-					<strong>Password:</strong><br>
+					<strong style="margin-left: 15px;">Password:</strong><br>
 					<input type="password" name="password" placeholder="Enter your password" required><br><br>
-					<strong>User Type:</strong><br>
-					Customer <input type='radio' name='user_type' value='Customer' checked/> Administrator <input type='radio' name='user_type' value='Administrator'/>
+					<strong style="margin-left: 15px;">User Type:</strong><br><br>
+					<input type='radio' name='user_type' value='Customer' checked/>Customer  <input type='radio' name='user_type' value='Administrator'/>Administrator
+					<br>
 					<br>
 					<?php
 						if(isset($_GET['msg']) && $_GET['msg']=='failed')
@@ -59,7 +61,7 @@
 							<br><br>";
 						}
 					?>
-					<input type="submit" name="Login" value="Login">
+					<input type="submit" name="Login" value="Login"><br>
 				</fieldset>
 				<br>
 				<a href="new_user.php"><i class="fa fa-user-plus" aria-hidden="true"></i> Create New User Account?</a>

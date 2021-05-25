@@ -31,14 +31,14 @@
 	</head>
 	<body style='background-color: #0077c82e;'>
 		<div style="margin-left: 20%; height: 85px;">
-			<img class="logo" src="images/shutterstock_22.png"/> 
+			 
 			<h1 id="title">
 				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>
 			<ul>
-				<li style="margin-left: 42%;"><a href="home_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+				<li style="margin-left: 42%;"><a href="landing_page.php"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
 			</ul>
 		</div>
 		<h2 style="margin-left: 14%;">AVAILABLE FLIGHTS</h2>
