@@ -30,10 +30,10 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
-		<div style="margin-left: 25%;">
+		<div style="margin-left: 20%; height: 85px;">
 			<img class="logo" src="images/shutterstock_22.png"/> 
 			<h1 id="title">
-				Threya Airlines
+				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>
@@ -156,7 +156,7 @@
 						}
 						else
 						{
-							echo "<form action=\"login_page.php\" method=\"post\">";
+							echo "<form action=\"book_tickets2.php\" method=\"post\">";
 							echo "<table cellpadding=\"10\"";
 							echo "<tr><th>Flight No.</th>
 							<th>Origin</th>
@@ -182,7 +182,7 @@
         						</tr>";
     						}
     						echo "</table> <br>";
-    						echo "<input type=\"submit\" value=\"Login to book flight\" name=\"Select\">";
+    						echo "<input type=\"submit\" value=\"Book flight\" name=\"Select\">";
     						echo "</form>";
     					}
 					}	

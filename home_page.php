@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			Welcome to Threya Airlines
+			Welcome to Threya Flight Reservation Services
 		</title>
 		<style>
 			input {
@@ -34,10 +34,10 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-image: url("images/shutterstock_1.jpg");background-repeat: no-repeat, repeat;background-color: #cccccc;'>
-		<div style="margin-left: 25%;">
+		<div style="margin-left: 20%; height: 85px;">
 			<img class="logo" src="images/shutterstock_22.png"/> 
 			<h1 id="title">
-				Threya Airlines
+				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>

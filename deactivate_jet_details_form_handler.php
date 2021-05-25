@@ -12,7 +12,7 @@
 				$data_missing=array();
 				if(empty($_POST['jet_id']))
 				{
-					$data_missing[]='Jet ID';
+					$data_missing[]='Aircraft ID';
 				}
 				else
 				{

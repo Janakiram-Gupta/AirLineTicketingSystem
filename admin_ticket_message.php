@@ -12,7 +12,7 @@
 	<body>
 		<img class="logo" src="images/shutterstock_22.png"/> 
 		<h1 id="title">
-			Threya Airlines
+			Threya Flight Reservation Services
 		</h1>
 		<div>
 			<ul>

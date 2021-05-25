@@ -1,7 +1,9 @@
 h1{
 	font-family: sans-serif;
 	font-style: bold;
-	font-size: 50pt;
+	font-size: 34pt;
+	position: relative;
+	top: 11px;
 }
 #title{
 	display: inline;

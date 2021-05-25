@@ -34,10 +34,10 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
-		<div style="margin-left: 25%;">
+		<div style="margin-left: 20%; height: 85px;">
 			<img class="logo" src="images/shutterstock_22.png"/> 
 			<h1 id="title">
-				Threya Airlines
+				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>

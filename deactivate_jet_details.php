@@ -24,10 +24,10 @@
 		<link rel="stylesheet" href="font-awesome-4.7.0\css\font-awesome.min.css">
 	</head>
 	<body style='background-color: #0077c82e;'>
-		<div style="margin-left: 25%;">
+		<div style="margin-left: 20%; height: 85px;">
 			<img class="logo" src="images/shutterstock_22.png"/> 
 			<h1 id="title">
-				Threya Airlines
+				Threya Flight Reservation Services
 			</h1>
 		</div>
 		<div>
@@ -50,14 +50,14 @@
 					}
 					else if(isset($_GET['msg']) && $_GET['msg']=='failed')
 					{
-						echo "<strong style='color:red'>*Invalid Jet ID entered, please enter again.</strong>
+						echo "<strong style='color:red'>*Invalid Aircraft ID entered, please enter again.</strong>
 							<br>
 							<br>";
 					}
 				?>
 				<table cellpadding="5" style="margin-left: 24%;">
 					<tr>
-						<td class="fix_table">Enter a valid Jet ID</td>
+						<td class="fix_table">Enter a valid Aircraft ID</td>
 					</tr>
 					<tr>
 						<td class="fix_table"><input type="text" name="jet_id" required></td>
