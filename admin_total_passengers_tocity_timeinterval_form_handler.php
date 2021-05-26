@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			List of all passengers who flew to a specific city during a specific time interval
+			List of all Passengers who flew to a specific city during a specific time interval
 		</title>
 		<style>
 			input {
@@ -47,7 +47,7 @@
 				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
-		<h2 style="margin-left: 21%;">List of all passengers who flew to a specific city during a specific time interval</h2>
+		<h2 style="margin-left: 21%;">List of all Passengers who flew to a specific city during a specific time interval</h2>
 		<div style="margin-left: 22%;">
 		<?php			
 			if (isset($_POST['Find']))
@@ -82,11 +82,11 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="select distinct customer_id from ticket_details where flight_no IN (select flight_no from flight_details where to_city = ?) and journey_date between CAST(? AS DATE) AND CAST(? AS DATE) ;";
+					$query="select distinct customer_name from Purchased_tickets where flight_no IN (select flight_no from flight_det where to_city = ?) and Journey_date between CAST(? AS DATE) AND CAST(? AS DATE) ;";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"sss",$to_city,$from_date,$to_date);
 					mysqli_stmt_execute($stmt);
-					mysqli_stmt_bind_result($stmt,$customer_id);
+					mysqli_stmt_bind_result($stmt,$customer_name);
 					mysqli_stmt_store_result($stmt);
 					if(mysqli_stmt_num_rows($stmt)==0)
 					{
@@ -94,13 +94,13 @@
 					}
 					else
 					{	
-						echo "List of passengers who flew to $to_city during $from_date to $to_date interval are below";
+						echo "List of Passengers who flew to $to_city during $from_date to $to_date interval are below";
 						echo "<br> <br> <table cellpadding=\"10\"";
 						echo "<tr><th>Customer Name</th>
 						</tr>";
 						while(mysqli_stmt_fetch($stmt)) {
 							echo "<tr>
-        						<td>".$customer_id."</td>
+        						<td>".$customer_name."</td>
         					</tr>";
 						}
 						echo "</table> <br>";

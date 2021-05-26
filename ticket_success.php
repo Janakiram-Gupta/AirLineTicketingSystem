@@ -43,7 +43,7 @@
 		</div>
 		<div style="margin-left: 30%;">
 			<h2>BOOKING SUCCESSFUL</h2>
-			<h3>Your payment of &#x20b9; <?php echo $_SESSION['total_amount']; ?> has been received.<br><br> Your PNR is <strong><?php echo $_SESSION['pnr'];?></strong>. Your tickets have been booked successfully.</h3>
+			<h3>Your payment of &#x20b9; <?php echo $_SESSION['total_amount']; ?> has been received.<br><br> Your PNR_NO is <strong><?php echo $_SESSION['PNR_NO'];?></strong>. Your tickets have been booked successfully.</h3>
 		</div>	
 		<!--Following data fields were empty!
 			...

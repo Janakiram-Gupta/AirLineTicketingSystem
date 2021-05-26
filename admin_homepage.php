@@ -47,15 +47,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_view_specific_time_travelled.php"><i class="fa fa-plane" aria-hidden="true"></i> 5.View List of passengers Journey hours for specfic time </a>
+					<td class="admin_func"><a href="admin_view_specific_time_travelled.php"><i class="fa fa-plane" aria-hidden="true"></i> 	5. Total number of hours that a specific passenger has travelled during a specific time interval </a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_total_hours_aircraft_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 6. Total number of hours that a specific airline has been running during a specific time interval</a>
+					<td class="admin_func"><a href="admin_total_hours_airline_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 6. Total number of hours that a specific airline has been running during a specific time interval</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_total_passengers_tocity_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 7. List of all passengers who flew to a specific city during a specific time interval</a>
+					<td class="admin_func"><a href="admin_total_passengers_tocity_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 7. List of all Passengers who flew to a specific city during a specific time interval</a>
 					</td>
 				</tr>
 				<tr>

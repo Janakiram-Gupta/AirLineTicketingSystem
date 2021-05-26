@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2017 at 04:09 AM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Generation Time: May 25, 2021 at 08:18 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,12 +28,12 @@ DELIMITER $$
 CREATE DEFINER=`Harry`@`localhost` PROCEDURE `GetFlightStatistics` (IN `j_date` DATE)  BEGIN
  select flight_no,departure_date,IFNULL(no_of_passengers, 0) as no_of_passengers,total_capacity from (
 select f.flight_no,f.departure_date,sum(t.no_of_passengers) as no_of_passengers,j.total_capacity 
-from flight_details f left join ticket_details t 
+from flight_det f left join Purchased_tickets t 
 on t.booking_status='CONFIRMED' 
 and t.flight_no=f.flight_no 
-and f.departure_date=t.journey_date 
-inner join jet_details j on j.jet_id=f.jet_id
-group by flight_no,journey_date) k where departure_date=j_date;
+and f.departure_date=t.Journey_date 
+inner join Aircraft_det j on j.Aircraft_id=f.Aircraft_id
+group by flight_no,Journey_date) k where departure_date=j_date;
  END$$
 
 DELIMITER ;
@@ -58,7 +57,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `pwd`, `staff_id`, `name`, `email`) VALUES
-('roshan', 'passpass', '101', 'Harry Roshan', 'harryroshan1997@gmail.com');
+('admin', 'password', '816963', 'Akhil Madishetty', 'AKhilmadishetty@gmail.com'),
+('Gupta', 'password', '816963', 'Janakiram Gupta', 'Janakiramgupta@gmail.com'),
+('Srija', 'password', '816963', 'Srija Reddy', 'Srijareddy@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,7 @@ INSERT INTO `admin` (`admin_id`, `pwd`, `staff_id`, `name`, `email`) VALUES
 --
 
 CREATE TABLE `customer` (
-  `customer_id` varchar(20) NOT NULL,
+  `customer_name` varchar(20) NOT NULL,
   `pwd` varchar(20) DEFAULT NULL,
   `name` varchar(20) DEFAULT NULL,
   `email` varchar(35) DEFAULT NULL,
@@ -79,21 +80,19 @@ CREATE TABLE `customer` (
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`customer_id`, `pwd`, `name`, `email`, `phone_no`, `address`) VALUES
+INSERT INTO `customer` (`customer_name`, `pwd`, `name`, `email`, `phone_no`, `address`) VALUES
 ('aadith', 'aadith007', 'aadith_name', 'aadith_email', '12345', 'aadith_address'),
-('Apple', 'abhishek', 'Abhijeeth', 'gmail@gmail.com', '+9185564764', 'hgsjhgdjfdjdgf'),
-('blah', 'blah blah', 'blah', 'blah@gmail.com', '993498570', 'blah'),
+('AKhil', 'password', 'Akhil Madishetty', 'akhil.madishetty7@gmail.com', '1222231', 'India'),
 ('charles', 'charles_pass', 'Charles', 'charles@gmail.com', '9090909090', 'Bangalore'),
-('chirag008', 'chirag', 'Chirag G', 'chirag@gmail.com', '8080808080', 'Kuldlu Gate'),
-('harryroshan', 'passpasshello', 'Harry Roshan', 'harryroshan1997@gmai', '9845713736', '#381, 1st E Main,');
+('Srija', 'srija123', 'Srija_reddy', 'Srija_email', '12345', 'Srija_address');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `flight_details`
+-- Table structure for table `flight_det`
 --
 
-CREATE TABLE `flight_details` (
+CREATE TABLE `flight_det` (
   `flight_no` varchar(10) NOT NULL,
   `from_city` varchar(20) DEFAULT NULL,
   `to_city` varchar(20) DEFAULT NULL,
@@ -105,19 +104,25 @@ CREATE TABLE `flight_details` (
   `seats_business` int(5) DEFAULT NULL,
   `price_economy` int(10) DEFAULT NULL,
   `price_business` int(10) DEFAULT NULL,
-  `jet_id` varchar(10) DEFAULT NULL
+  `Aircraft_id` varchar(10) DEFAULT NULL,
+  `Journey_time` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `flight_details`
+-- Dumping data for table `flight_det`
 --
 
-INSERT INTO `flight_details` (`flight_no`, `from_city`, `to_city`, `departure_date`, `arrival_date`, `departure_time`, `arrival_time`, `seats_economy`, `seats_business`, `price_economy`, `price_business`, `jet_id`) VALUES
-('AA101', 'bangalore', 'mumbai', '2017-12-01', '2017-12-02', '21:00:00', '01:00:00', 195, 96, 5000, 7500, '10001'),
-('AA102', 'bangalore', 'mumbai', '2017-12-01', '2017-12-01', '10:00:00', '12:00:00', 200, 73, 2500, 3000, '10002'),
-('AA103', 'bangalore', 'chennai', '2017-12-03', '2017-12-03', '17:00:00', '17:45:00', 150, 75, 1200, 1500, '10004'),
-('AA104', 'bangalore', 'mysore', '2017-12-04', '2017-12-04', '09:00:00', '09:17:00', 37, 4, 500, 750, '10003'),
-('AA106', 'bangalore', 'hyderabad', '2017-12-01', '2017-12-01', '13:00:00', '14:00:00', 150, 75, 3000, 3750, '10004');
+INSERT INTO `flight_det` (`flight_no`, `from_city`, `to_city`, `departure_date`, `arrival_date`, `departure_time`, `arrival_time`, `seats_economy`, `seats_business`, `price_economy`, `price_business`, `Aircraft_id`, `Journey_time`) VALUES
+('E001', 'Hyderabad', 'Dubai', '2021-05-24', '2021-05-25', '15:00:00', '19:45:00', 150, 50, 50000, 95000, '10007', 0),
+('E002', 'Dubai', 'Toronto', '2021-05-24', '2021-05-25', '12:00:00', '23:45:00', 150, 50, 65000, 125000, '10002', 0),
+('E002', 'Delhi', 'Toronto', '2021-05-26', '2021-05-26', '05:00:00', '17:45:00', 148, 50, 48750, 125000, '10002', 13),
+('E003', 'Dubai', 'London', '2021-05-24', '2021-05-25', '11:00:00', '19:45:00', 150, 50, 58000, 135000, '10004', 0),
+('E004', 'Delhi', 'Toronto', '2021-05-25', '2021-05-26', '12:00:00', '23:45:00', 150, 50, 85000, 125000, '10001', 0),
+('E005', 'Mumbai', 'Frankfurt', '2021-05-27', '2021-05-27', '01:00:00', '14:15:00', 150, 50, 55000, 105000, '10002', 13),
+('E005', 'Mumbai', 'Frankfurt', '2021-05-28', '2021-05-28', '01:00:00', '14:15:00', 150, 50, 55000, 105000, '10002', 13),
+('E006', 'Bangalore', 'Sydney', '2021-05-28', '2021-05-28', '16:00:00', '23:45:00', 150, 50, 50000, 95000, '10008', 8),
+('E007', 'Hyderabad', 'Toronto', '2021-05-27', '2021-05-27', '06:00:00', '15:30:00', 299, 45, 64280, 129500, '10003', 9),
+('E008', 'Dubai', 'Toronto', '2021-05-29', '2021-05-29', '11:00:00', '19:45:00', 150, 50, 58000, 135000, '10003', 8);
 
 -- --------------------------------------------------------
 
@@ -127,51 +132,49 @@ INSERT INTO `flight_details` (`flight_no`, `from_city`, `to_city`, `departure_da
 
 CREATE TABLE `frequent_flier_details` (
   `frequent_flier_no` varchar(20) NOT NULL,
-  `customer_id` varchar(20) DEFAULT NULL,
+  `customer_name` varchar(20) DEFAULT NULL,
   `mileage` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `frequent_flier_details`
---
-
-INSERT INTO `frequent_flier_details` (`frequent_flier_no`, `customer_id`, `mileage`) VALUES
-('10001000', 'aadith', 375),
-('20002000', 'harryroshan', 150);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `jet_details`
+-- Table structure for table `Aircraft_det`
 --
 
-CREATE TABLE `jet_details` (
-  `jet_id` varchar(10) NOT NULL,
-  `jet_type` varchar(20) DEFAULT NULL,
+CREATE TABLE `Aircraft_det` (
+  `Aircraft_id` varchar(10) NOT NULL,
+  `Aircraft_type` varchar(20) DEFAULT NULL,
   `total_capacity` int(5) DEFAULT NULL,
-  `active` varchar(5) DEFAULT NULL
+  `active` varchar(5) DEFAULT NULL,
+  `Airlines_Name` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jet_details`
+-- Dumping data for table `Aircraft_det`
 --
 
-INSERT INTO `jet_details` (`jet_id`, `jet_type`, `total_capacity`, `active`) VALUES
-('10001', 'Dreamliner', 300, 'Yes'),
-('10002', 'Airbus A380', 275, 'Yes'),
-('10003', 'ATR', 50, 'Yes'),
-('10004', 'Boeing 737', 225, 'Yes'),
-('10007', 'Test_Model', 250, 'Yes');
+INSERT INTO `Aircraft_det` (`Aircraft_id`, `Aircraft_type`, `total_capacity`, `active`, `Airlines_Name`) VALUES
+('10001', 'Airbus A380', 500, 'Yes', 'Emirates'),
+('10002', 'Concorde', 450, 'Yes', 'Emirates'),
+('10003', 'Gulfstream ', 600, 'Yes', 'Emirates'),
+('10004', 'Lockheed Vega 5b', 650, 'No', 'Emirates'),
+('10005', 'The Wright Flyer', 550, 'Yes', 'Emirates'),
+('10006', 'Airbus A380', 500, 'Yes', 'avianca'),
+('10007', 'Concorde', 450, 'Yes', 'avianca'),
+('10008', 'Gulfstream ', 600, 'Yes', 'avianca'),
+('10009', 'Lockheed Vega 5b', 650, 'No', 'avianca'),
+('10010', 'The Wright Flyer', 550, 'Yes', 'avianca');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `passengers`
+-- Table structure for table `passengers_det`
 --
 
-CREATE TABLE `passengers` (
+CREATE TABLE `passengers_det` (
   `passenger_id` int(10) NOT NULL,
-  `pnr` varchar(15) NOT NULL,
+  `PNR_NO` varchar(15) NOT NULL,
   `name` varchar(20) DEFAULT NULL,
   `age` int(3) DEFAULT NULL,
   `gender` varchar(8) DEFAULT NULL,
@@ -180,82 +183,56 @@ CREATE TABLE `passengers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `passengers`
+-- Dumping data for table `passengers_det`
 --
 
-INSERT INTO `passengers` (`passenger_id`, `pnr`, `name`, `age`, `gender`, `meal_choice`, `frequent_flier_no`) VALUES
-(1, '1669050', 'Harry Roshan', 20, 'male', 'yes', '20002000'),
-(1, '2369143', 'blah', 20, 'male', 'yes', NULL),
-(1, '3027167', 'aadith_name', 10, 'male', 'yes', NULL),
-(1, '3773951', 'harry', 51, 'male', 'yes', NULL),
-(1, '4797983', 'pass1', 34, 'male', 'yes', NULL),
-(1, '5421865', 'pass1', 10, 'male', 'yes', NULL),
-(1, '6980157', 'roshan', 20, 'male', 'yes', NULL),
-(1, '8503285', 'aadith_name', 10, 'male', 'yes', '10001000'),
-(2, '1669050', 'berti harry', 45, 'female', 'yes', NULL),
-(2, '2369143', 'blah', 51, 'male', 'yes', NULL),
-(2, '3027167', 'roshan', 20, 'male', 'yes', NULL),
-(2, '3773951', 'berti', 42, 'female', 'yes', NULL),
-(2, '4797983', 'Harry Roshan', 20, 'male', 'yes', '20002000'),
-(2, '5421865', 'pass2', 20, 'female', 'yes', NULL),
-(2, '6980157', 'aadith', 9, 'male', 'yes', NULL),
-(2, '8503285', 'roshan_name', 20, 'male', 'yes', NULL),
-(3, '1669050', 'aadith_name', 10, 'male', 'yes', NULL),
-(3, '2369143', 'blah', 10, 'male', 'yes', NULL),
-(3, '3773951', 'aadith', 11, 'male', 'yes', '10001000'),
-(3, '4797983', 'aadith_name', 10, 'male', 'yes', '10001000'),
-(3, '5421865', 'pass3', 30, 'male', 'yes', NULL),
-(4, '2369143', 'blah', 42, 'female', 'yes', NULL);
+INSERT INTO `passengers_det` (`passenger_id`, `PNR_NO`, `name`, `age`, `gender`, `meal_choice`, `frequent_flier_no`) VALUES
+(1, '7081866', 'Jhon', 33, 'male', 'yes', NULL),
+(2, '7081866', 'Kane', 45, 'male', 'yes', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `payment_details`
+-- Table structure for table `payment_det`
 --
 
-CREATE TABLE `payment_details` (
+CREATE TABLE `payment_det` (
   `payment_id` varchar(20) NOT NULL,
-  `pnr` varchar(15) DEFAULT NULL,
+  `PNR_NO` varchar(15) DEFAULT NULL,
   `payment_date` date DEFAULT NULL,
   `payment_amount` int(6) DEFAULT NULL,
   `payment_mode` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `payment_details`
+-- Dumping data for table `payment_det`
 --
 
-INSERT INTO `payment_details` (`payment_id`, `pnr`, `payment_date`, `payment_amount`, `payment_mode`) VALUES
-('120000248', '4797983', '2017-11-25', 4200, 'credit card'),
-('142539461', '3773951', '2017-11-25', 4050, 'credit card'),
-('165125569', '8503285', '2017-11-25', 7500, 'net banking'),
-('467972527', '2369143', '2017-11-26', 33400, 'debit card'),
-('557778944', '6980157', '2017-11-26', 11700, 'credit card'),
-('620041544', '1669050', '2017-11-25', 4800, 'debit card'),
-('665360715', '5421865', '2017-11-28', 15750, 'net banking'),
-('862686553', '3027167', '2017-11-25', 10700, 'debit card');
+INSERT INTO `payment_det` (`payment_id`, `PNR_NO`, `payment_date`, `payment_amount`, `payment_mode`) VALUES
+('135900320', '2864193', '2021-05-25', 65130, 'credit card'),
+('412762614', '7081866', '2021-05-25', 99200, 'debit card');
 
 --
--- Triggers `payment_details`
+-- Triggers `payment_det`
 --
 DELIMITER $$
-CREATE TRIGGER `update_ticket_after_payment` AFTER INSERT ON `payment_details` FOR EACH ROW UPDATE ticket_details
+CREATE TRIGGER `update_ticket_after_payment` AFTER INSERT ON `payment_det` FOR EACH ROW UPDATE Purchased_tickets
      SET booking_status='CONFIRMED', payment_id= NEW.payment_id
-   WHERE pnr = NEW.pnr
+   WHERE PNR_NO = NEW.PNR_NO
 $$
 DELIMITER ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ticket_details`
+-- Table structure for table `Purchased_tickets`
 --
 
-CREATE TABLE `ticket_details` (
-  `pnr` varchar(15) NOT NULL,
+CREATE TABLE `Purchased_tickets` (
+  `PNR_NO` varchar(15) NOT NULL,
   `date_of_reservation` date DEFAULT NULL,
   `flight_no` varchar(10) DEFAULT NULL,
-  `journey_date` date DEFAULT NULL,
+  `Journey_date` date DEFAULT NULL,
   `class` varchar(10) DEFAULT NULL,
   `booking_status` varchar(20) DEFAULT NULL,
   `no_of_passengers` int(5) DEFAULT NULL,
@@ -263,22 +240,16 @@ CREATE TABLE `ticket_details` (
   `priority_checkin` varchar(5) DEFAULT NULL,
   `insurance` varchar(5) DEFAULT NULL,
   `payment_id` varchar(20) DEFAULT NULL,
-  `customer_id` varchar(20) DEFAULT NULL
+  `customer_name` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `ticket_details`
+-- Dumping data for table `Purchased_tickets`
 --
 
-INSERT INTO `ticket_details` (`pnr`, `date_of_reservation`, `flight_no`, `journey_date`, `class`, `booking_status`, `no_of_passengers`, `lounge_access`, `priority_checkin`, `insurance`, `payment_id`, `customer_id`) VALUES
-('1669050', '2017-11-25', 'AA104', '2017-12-04', 'business', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '620041544', 'harryroshan'),
-('2369143', '2017-11-26', 'AA101', '2017-12-01', 'business', 'CONFIRMED', 4, 'yes', 'yes', 'yes', '467972527', 'blah'),
-('3027167', '2017-11-25', 'AA101', '2017-12-01', 'economy', 'CONFIRMED', 2, 'no', 'no', 'yes', '862686553', 'aadith'),
-('3773951', '2017-11-25', 'AA104', '2017-12-04', 'economy', 'CONFIRMED', 3, 'yes', 'yes', 'yes', '142539461', 'aadith'),
-('4797983', '2017-11-25', 'AA104', '2017-12-04', 'business', 'CONFIRMED', 3, 'yes', 'no', 'yes', '120000248', 'harryroshan'),
-('5421865', '2017-11-28', 'AA101', '2017-12-01', 'economy', 'CONFIRMED', 3, 'no', 'no', 'no', '665360715', 'harryroshan'),
-('6980157', '2017-11-26', 'AA101', '2017-12-01', 'economy', 'CANCELED', 2, 'yes', 'yes', 'yes', '557778944', 'aadith'),
-('8503285', '2017-11-25', 'AA102', '2017-12-01', 'business', 'CONFIRMED', 2, 'yes', 'yes', 'no', '165125569', 'aadith');
+INSERT INTO `Purchased_tickets` (`PNR_NO`, `date_of_reservation`, `flight_no`, `Journey_date`, `class`, `booking_status`, `no_of_passengers`, `lounge_access`, `priority_checkin`, `insurance`, `payment_id`, `customer_name`) VALUES
+('2864193', '2021-05-25', 'E007', '2021-05-27', 'economy', 'CONFIRMED', 1, 'yes', 'yes', 'yes', '135900320', 'akhil'),
+('7081866', '2021-05-25', 'E002', '2021-05-26', 'economy', 'CONFIRMED', 2, 'yes', 'yes', 'yes', '412762614', 'charles');
 
 --
 -- Indexes for dumped tables
@@ -294,88 +265,88 @@ ALTER TABLE `admin`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`customer_id`);
+  ADD PRIMARY KEY (`customer_name`);
 
 --
--- Indexes for table `flight_details`
+-- Indexes for table `flight_det`
 --
-ALTER TABLE `flight_details`
+ALTER TABLE `flight_det`
   ADD PRIMARY KEY (`flight_no`,`departure_date`),
-  ADD KEY `jet_id` (`jet_id`);
+  ADD KEY `Aircraft_id` (`Aircraft_id`);
 
 --
 -- Indexes for table `frequent_flier_details`
 --
 ALTER TABLE `frequent_flier_details`
   ADD PRIMARY KEY (`frequent_flier_no`),
-  ADD KEY `customer_id` (`customer_id`);
+  ADD KEY `customer_name` (`customer_name`);
 
 --
--- Indexes for table `jet_details`
+-- Indexes for table `Aircraft_det`
 --
-ALTER TABLE `jet_details`
-  ADD PRIMARY KEY (`jet_id`);
+ALTER TABLE `Aircraft_det`
+  ADD PRIMARY KEY (`Aircraft_id`);
 
 --
--- Indexes for table `passengers`
+-- Indexes for table `passengers_det`
 --
-ALTER TABLE `passengers`
-  ADD PRIMARY KEY (`passenger_id`,`pnr`),
-  ADD KEY `pnr` (`pnr`),
+ALTER TABLE `passengers_det`
+  ADD PRIMARY KEY (`passenger_id`,`PNR_NO`),
+  ADD KEY `PNR_NO` (`PNR_NO`),
   ADD KEY `frequent_flier_no` (`frequent_flier_no`);
 
 --
--- Indexes for table `payment_details`
+-- Indexes for table `payment_det`
 --
-ALTER TABLE `payment_details`
+ALTER TABLE `payment_det`
   ADD PRIMARY KEY (`payment_id`),
-  ADD KEY `pnr` (`pnr`);
+  ADD KEY `PNR_NO` (`PNR_NO`);
 
 --
--- Indexes for table `ticket_details`
+-- Indexes for table `Purchased_tickets`
 --
-ALTER TABLE `ticket_details`
-  ADD PRIMARY KEY (`pnr`),
-  ADD KEY `customer_id` (`customer_id`),
-  ADD KEY `journey_date` (`journey_date`),
+ALTER TABLE `Purchased_tickets`
+  ADD PRIMARY KEY (`PNR_NO`),
+  ADD KEY `customer_name` (`customer_name`),
+  ADD KEY `Journey_date` (`Journey_date`),
   ADD KEY `flight_no` (`flight_no`),
-  ADD KEY `flight_no_2` (`flight_no`,`journey_date`);
+  ADD KEY `flight_no_2` (`flight_no`,`Journey_date`);
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `flight_details`
+-- Constraints for table `flight_det`
 --
-ALTER TABLE `flight_details`
-  ADD CONSTRAINT `flight_details_ibfk_1` FOREIGN KEY (`jet_id`) REFERENCES `jet_details` (`jet_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `flight_det`
+  ADD CONSTRAINT `flight_details_ibfk_1` FOREIGN KEY (`Aircraft_id`) REFERENCES `Aircraft_det` (`Aircraft_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `frequent_flier_details`
 --
 ALTER TABLE `frequent_flier_details`
-  ADD CONSTRAINT `frequent_flier_details_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `frequent_flier_details_ibfk_1` FOREIGN KEY (`customer_name`) REFERENCES `customer` (`customer_name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `passengers`
+-- Constraints for table `passengers_det`
 --
-ALTER TABLE `passengers`
-  ADD CONSTRAINT `passengers_ibfk_1` FOREIGN KEY (`pnr`) REFERENCES `ticket_details` (`pnr`) ON DELETE CASCADE ON UPDATE CASCADE,
+ALTER TABLE `passengers_det`
+  ADD CONSTRAINT `passengers_ibfk_1` FOREIGN KEY (`PNR_NO`) REFERENCES `Purchased_tickets` (`PNR_NO`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `passengers_ibfk_2` FOREIGN KEY (`frequent_flier_no`) REFERENCES `frequent_flier_details` (`frequent_flier_no`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `payment_details`
+-- Constraints for table `payment_det`
 --
-ALTER TABLE `payment_details`
-  ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`pnr`) REFERENCES `ticket_details` (`pnr`) ON UPDATE CASCADE;
+ALTER TABLE `payment_det`
+  ADD CONSTRAINT `payment_details_ibfk_1` FOREIGN KEY (`PNR_NO`) REFERENCES `Purchased_tickets` (`PNR_NO`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `ticket_details`
+-- Constraints for table `Purchased_tickets`
 --
-ALTER TABLE `ticket_details`
-  ADD CONSTRAINT `ticket_details_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `ticket_details_ibfk_3` FOREIGN KEY (`flight_no`,`journey_date`) REFERENCES `flight_details` (`flight_no`, `departure_date`) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE `Purchased_tickets`
+  ADD CONSTRAINT `ticket_details_ibfk_2` FOREIGN KEY (`customer_name`) REFERENCES `customer` (`customer_name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `ticket_details_ibfk_3` FOREIGN KEY (`flight_no`,`Journey_date`) REFERENCES `flight_det` (`flight_no`, `departure_date`) ON DELETE SET NULL ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

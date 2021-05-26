@@ -130,7 +130,7 @@
 					</tr>
 					<tr>
 						<td class="fix_table">
-							<input type="text" name="jet_id" required>
+							<input type="text" name="Aircraft_id" required>
 						</td>
 					</tr>
 				</table>

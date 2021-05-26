@@ -78,7 +78,7 @@
 				<table cellpadding="5">
 					<tr>
 						<td class="fix_table">Enter the Departure Date</td>
-						<td class="fix_table">Enter the No. of Passengers</td>
+						<td class="fix_table">Enter the No. of passengers_det</td>
 					</tr>
 					<tr>
 						<td class="fix_table"><input type="date" name="dep_date" min=

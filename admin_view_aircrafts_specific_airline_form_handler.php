@@ -70,31 +70,31 @@
 			{
 				
 				$data_missing=array();
-				if(empty($_POST['jet_type']))
+				if(empty($_POST['Aircraft_type']))
 				{
-					$data_missing[]='jet_type';
+					$data_missing[]='Aircraft_type';
 				}
 				else
 				{
-					$jet_type=trim($_POST['jet_type']);
+					$Aircraft_type=trim($_POST['Aircraft_type']);
 				}
 
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="SELECT jet_id,jet_type,total_capacity,active FROM jet_details WHERE jet_type=?";
+					$query="SELECT Aircraft_id,Aircraft_type,total_capacity,active FROM Aircraft_det WHERE Aircraft_type=?";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"s",$jet_type);
+					mysqli_stmt_bind_param($stmt,"s",$Aircraft_type);
 					mysqli_stmt_execute($stmt);
-					mysqli_stmt_bind_result($stmt,$jet_id,$jet_type,$total_capacity,$active);
+					mysqli_stmt_bind_result($stmt,$Aircraft_id,$Aircraft_type,$total_capacity,$active);
 					mysqli_stmt_store_result($stmt);
 					if(mysqli_stmt_num_rows($stmt)==0)
 					{
-						echo "<h3>No aircrafts are available belonging to $jet_type airline!</h3>";
+						echo "<h3>No aircrafts are available belonging to $Aircraft_type airline!</h3>";
 					}
 					else
 					{	
-						echo "Total number of aircrafts belonging to $jet_type airline is <h4 id='aircrafts_count'></h4>";
+						echo "Total number of aircrafts belonging to $Aircraft_type airline is <h4 id='aircrafts_count'></h4>";
 						echo "<table id=\"tblAircrafts\" cellpadding=\"10\"";
 						echo "<tr><th>Aircraft ID</th>
 						<th>Aircraft Type</th>
@@ -103,8 +103,8 @@
 						</tr>";
 						while(mysqli_stmt_fetch($stmt)) {
 								echo "<tr>
-        						<td>".$jet_id."</td>
-        						<td>".$jet_type."</td>
+        						<td>".$Aircraft_id."</td>
+        						<td>".$Aircraft_type."</td>
 								<td>".$total_capacity."</td>
 								<td>".$active."</td>
         						</tr>";						

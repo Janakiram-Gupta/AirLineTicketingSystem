@@ -42,7 +42,7 @@
 					if($user_type=='Customer')
 					{
 						require_once('Database Connection file/mysqli_connect.php');
-						$query="SELECT count(*) FROM Customer where customer_id=? and pwd=?";
+						$query="SELECT count(*) FROM Customer where customer_name=? and pwd=?";
 						$stmt=mysqli_prepare($dbc,$query);
 						mysqli_stmt_bind_param($stmt,"ss",$user_name,$pass_word);
 						mysqli_stmt_execute($stmt);

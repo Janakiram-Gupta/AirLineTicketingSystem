@@ -54,13 +54,13 @@
 			{
 				
 				$data_missing=array();
-				if(empty($_POST['customer_id']))
+				if(empty($_POST['customer_name']))
 				{
-					$data_missing[]='customer_id No.';
+					$data_missing[]='customer_name No.';
 				}
 				else
 				{
-					$customer_id=trim($_POST['customer_id']);
+					$customer_name=trim($_POST['customer_name']);
 				}
 				if(empty($_POST['from_date']))
 				{
@@ -82,9 +82,9 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="select sum(journey_time) as total_hours from flight_details where flight_no in( select flight_no from ticket_details where customer_id = ? and journey_date between CAST(? AS DATE) AND CAST(? AS DATE))";
+					$query="select sum(journey_time) as total_hours from flight_det where flight_no in( select flight_no from Purchased_tickets where customer_name = ? and Journey_date between CAST(? AS DATE) AND CAST(? AS DATE))";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"sss",$customer_id,$from_date,$to_date);
+					mysqli_stmt_bind_param($stmt,"sss",$customer_name,$from_date,$to_date);
 					mysqli_stmt_execute($stmt);
 					mysqli_stmt_bind_result($stmt,$total_hours);
 					mysqli_stmt_store_result($stmt);

@@ -59,7 +59,7 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="select count(f.to_city) as top_city, f.to_city as cityName from flight_details f join ticket_details t on f.flight_no = t.flight_no WHERE t.journey_date <= date(DATE_SUB('2021-06-28', INTERVAL 1 MONTH)) GROUP by f.to_city ORDER by top_city desc LIMIT 1;";
+					$query="select count(f.to_city) as top_city, f.to_city as cityName from flight_det f join Purchased_tickets t on f.flight_no = t.flight_no WHERE t.Journey_date <= date(DATE_SUB('2021-06-28', INTERVAL 1 MONTH)) GROUP by f.to_city ORDER by top_city desc LIMIT 1;";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_execute($stmt);
 					mysqli_stmt_bind_result($stmt,$top_city,$cityName);

@@ -75,11 +75,11 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="SELECT jet_type FROM jet_details WHERE jet_id IN(SELECT jet_id FROM flight_details WHERE from_city=? AND to_city=?)";
+					$query="SELECT DISTINCT Airlines_Name FROM Aircraft_det WHERE Aircraft_id IN(SELECT Aircraft_id FROM flight_det WHERE from_city=? AND to_city=?)";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ss",$from_city,$to_city);
 					mysqli_stmt_execute($stmt);
-					mysqli_stmt_bind_result($stmt,$jet_type);
+					mysqli_stmt_bind_result($stmt,$Airlines_Name);
 					mysqli_stmt_store_result($stmt);
 					if(mysqli_stmt_num_rows($stmt)==0)
 					{
@@ -93,7 +93,7 @@
 						</tr>";
 						while(mysqli_stmt_fetch($stmt)) {
 							echo "<tr>
-        						<td>".$jet_type."</td>
+        						<td>".$Airlines_Name."</td>
         					</tr>";
 						}
     				}

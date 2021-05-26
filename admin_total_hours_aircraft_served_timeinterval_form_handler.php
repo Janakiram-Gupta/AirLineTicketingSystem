@@ -54,13 +54,13 @@
 			{
 				
 				$data_missing=array();
-				if(empty($_POST['jet_type']))
+				if(empty($_POST['Aircraft_type']))
 				{
-					$data_missing[]='jet_type';
+					$data_missing[]='Aircraft_type';
 				}
 				else
 				{
-					$jet_type=trim($_POST['jet_type']);
+					$Aircraft_type=trim($_POST['Aircraft_type']);
 				}
 				if(empty($_POST['from_date']))
 				{
@@ -82,9 +82,9 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="select sum(Journey_time) as total_hours from flight_details where jet_id in (select jet_id from jet_details where jet_type = ?) and departure_date between CAST(? AS DATE) AND CAST(? AS DATE) ;";
+					$query="select sum(Journey_time) as total_hours from flight_det where Aircraft_id in (select Aircraft_id from Aircraft_det where Aircraft_type = ?) and departure_date between CAST(? AS DATE) AND CAST(? AS DATE) ;";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"sss",$jet_type,$from_date,$to_date);
+					mysqli_stmt_bind_param($stmt,"sss",$Aircraft_type,$from_date,$to_date);
 					mysqli_stmt_execute($stmt);
 					mysqli_stmt_bind_result($stmt,$total_hours);
 					mysqli_stmt_store_result($stmt);
@@ -95,7 +95,7 @@
 					else
 					{	
 						while(mysqli_stmt_fetch($stmt)) {
-							echo "Total hours that $jet_type aircraft has served during $from_date to $to_date interval is <h4>$total_hours</h4>";
+							echo "Total hours that $Aircraft_type aircraft has served during $from_date to $to_date interval is <h4>$total_hours</h4>";
 						}
     				}
 					mysqli_stmt_close($stmt);

@@ -73,11 +73,11 @@
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="SELECT pnr,date_of_reservation,class,no_of_passengers,payment_id,customer_id FROM Ticket_Details where flight_no=? and journey_date=? and booking_status='CONFIRMED' ORDER BY class";
+					$query="SELECT PNR_NO,date_of_reservation,class,no_of_passengers,payment_id,customer_name FROM Purchased_tickets where flight_no=? and Journey_date=? and booking_status='CONFIRMED' ORDER BY class";
 					$stmt=mysqli_prepare($dbc,$query);
 					mysqli_stmt_bind_param($stmt,"ss",$flight_no,$departure_date);
 					mysqli_stmt_execute($stmt);
-					mysqli_stmt_bind_result($stmt,$pnr,$date_of_reservation,$class,$no_of_passengers,$payment_id,$customer_id);
+					mysqli_stmt_bind_result($stmt,$PNR_NO,$date_of_reservation,$class,$no_of_passengers,$payment_id,$customer_name);
 					mysqli_stmt_store_result($stmt);
 					if(mysqli_stmt_num_rows($stmt)==0)
 					{
@@ -86,21 +86,21 @@
 					else
 					{
 						echo "<table cellpadding=\"10\"";
-						echo "<tr><th>PNR</th>
+						echo "<tr><th>PNR_NO</th>
 						<th>Date of Reservation</th>
 						<th>Class</th>
-						<th>No. of Passengers</th>
+						<th>No. of passengers_det</th>
 						<th>Payment ID</th>
 						<th>Customer ID</th>
 						</tr>";
 						while(mysqli_stmt_fetch($stmt)) {
         					echo "<tr>
-							<td>".$pnr."</td>
+							<td>".$PNR_NO."</td>
 							<td>".$date_of_reservation."</td>
 							<td>".$class."</td>
 							<td>".$no_of_passengers."</td>
 							<td>".$payment_id."</td>
-							<td>".$customer_id."</td>
+							<td>".$customer_name."</td>
         					</tr>";
     					}
     					echo "</table> <br>";

@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			View Booked Tickets
+			Total number of hours that a specific airline has been running during a specific time interval
 		</title>
 		<style>
 			input {
@@ -42,18 +42,18 @@
 				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
-		<form action="admin_view_specific_time_travelled__formhandler.php" method="post">
+		<form action="admin_total_hours_airline_served_timeinterval_form_handler.php" method="post">
 			<div>
-					<h2 style="margin-left: 20%;">View Total number of hours that a specific passenger has travelled during a specific time interval.</h2>
+					<h2 style="margin-left: 20%;">Total number of hours that a specific airline has been running during a specific time interval</h2>
 					<div style="margin-left: 29%;">
 					<table cellpadding="5">
 						<tr>
-							<td class="fix_table">Enter the customer name</td>
+							<td class="fix_table">Enter the Airline Name</td>
 							<td class="fix_table">Enter the from date</td>
 							<td class="fix_table">Enter the to date</td>
 						</tr>
 						<tr>
-							<td class="fix_table"><input type="text" name="customer_name" required></td>
+							<td class="fix_table"><input type="text" name="Airlines_Name" required></td>
 							<td class="fix_table"><input type="date" name="from_date" required></td>
 							<td class="fix_table"><input type="date" name="to_date" required></td>
 						</tr>

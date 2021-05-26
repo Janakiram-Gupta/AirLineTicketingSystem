@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			List of aircrafts that have not been in used from a specific source location
+			Total number of hours that a specific airline has been running during a specific time interval
 		</title>
 		<style>
 			input {
@@ -47,48 +47,56 @@
 				<li><a href="logout_handler.php"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
 			</ul>
 		</div>
-		<h2 style="margin-left: 21%;">List of aircrafts that have not been in used from a specific source location.
-</h2>
+		<h2 style="margin-left: 21%;">Total number of hours that a specific airline has been running during a specific time interval</h2>
 		<div style="margin-left: 22%;">
 		<?php			
-			if (isset($_POST['find']))
+			if (isset($_POST['Find']))
 			{
 				
 				$data_missing=array();
-				if(empty($_POST['from_city']))
+				if(empty($_POST['Airlines_Name']))
 				{
-					$data_missing[]='from_city';
+					$data_missing[]='Airlines_Name';
 				}
 				else
 				{
-					$from_city=trim($_POST['from_city']);
+					$Airlines_Name=trim($_POST['Airlines_Name']);
 				}
-				
+				if(empty($_POST['from_date']))
+				{
+					$data_missing[]='from_date ';
+				}
+				else
+				{
+					$from_date=$_POST['from_date'];
+				}
+				if(empty($_POST['to_date']))
+				{
+					$data_missing[]='to_date ';
+				}
+				else
+				{
+					$to_date=$_POST['to_date'];
+				}
+
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="SELECT Aircraft_type FROM Aircraft_det WHERE active='No' AND Aircraft_id IN(SELECT Aircraft_id FROM flight_det WHERE from_city=?)";
+					$query="select sum(Journey_time) as total_hours from flight_det where Aircraft_id in (select Aircraft_id from Aircraft_det where Airlines_Name = ?) and departure_date between CAST(? AS DATE) AND CAST(? AS DATE) ;";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"s",$from_city);
+					mysqli_stmt_bind_param($stmt,"sss",$Airlines_Name,$from_date,$to_date);
 					mysqli_stmt_execute($stmt);
-					mysqli_stmt_bind_result($stmt,$Aircraft_type);
+					mysqli_stmt_bind_result($stmt,$total_hours);
 					mysqli_stmt_store_result($stmt);
 					if(mysqli_stmt_num_rows($stmt)==0)
 					{
-						echo "<h3>No Aircrafts are in active from selected location !</h3>";
+						echo "<h3>No Airlines have travelled from $from_date to $to_date!</h3>";
 					}
 					else
-					{
-						echo "Total aircrafts that have not been in used from a source $from_city are below";
-						echo "<br> <br> <table id=\"tblAircrafts\" cellpadding=\"10\"";
-						echo "<tr><th>Aircraft</th>
-						</tr>";
+					{	
 						while(mysqli_stmt_fetch($stmt)) {
-							echo "<tr>
-        						<td>".$Aircraft_type."</td>
-        					</tr>";
+							echo "Total hours that $Airlines_Name Airlines has served during $from_date to $to_date interval is <h4>$total_hours</h4>";
 						}
-						echo "</table> <br>";
     				}
 					mysqli_stmt_close($stmt);
 					mysqli_close($dbc);

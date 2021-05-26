@@ -58,7 +58,7 @@
 						<td class="fix_table">Enter a valid Aircraft ID</td>
 					</tr>
 					<tr>
-						<td class="fix_table"><input type="text" name="jet_id" required></td>
+						<td class="fix_table"><input type="text" name="Aircraft_id" required></td>
 					</tr>
 				</table>
 				<br>
@@ -67,7 +67,7 @@
 						<td class="fix_table">Enter the Aircraft Type/Model</td>
 					</tr>
 					<tr>
-						<td class="fix_table"><input type="text" name="jet_type" required></td>
+						<td class="fix_table"><input type="text" name="Aircraft_type" required></td>
 					</tr>
 				</table>
 				<br>
@@ -76,7 +76,7 @@
 						<td class="fix_table">Enter the total capacity of the Aircraft</td>
 					</tr>
 					<tr>
-						<td class="fix_table"><input type="number" name="jet_capacity" required></td>
+						<td class="fix_table"><input type="number" name="total_capacity" required></td>
 					</tr>
 				</table>
 				<br>

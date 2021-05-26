@@ -10,39 +10,39 @@
 			if(isset($_POST['Submit']))
 			{
 				$data_missing=array();
-				if(empty($_POST['jet_id']))
+				if(empty($_POST['Aircraft_id']))
 				{
 					$data_missing[]='Aircraft ID';
 				}
 				else
 				{
-					$jet_id=trim($_POST['jet_id']);
+					$Aircraft_id=trim($_POST['Aircraft_id']);
 				}
 
-				if(empty($_POST['jet_type']))
+				if(empty($_POST['Aircraft_type']))
 				{
 					$data_missing[]='Aircraft Type';
 				}
 				else
 				{
-					$jet_type=$_POST['jet_type'];
+					$Aircraft_type=$_POST['Aircraft_type'];
 				}
 
-				if(empty($_POST['jet_capacity']))
+				if(empty($_POST['total_capacity']))
 				{
 					$data_missing[]='Aircraft Capacity';
 				}
 				else
 				{
-					$jet_capacity=$_POST['jet_capacity'];
+					$total_capacity=$_POST['total_capacity'];
 				}
 
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="INSERT INTO Jet_Details (jet_id,jet_type,total_capacity,active) VALUES (?,?,?,'Yes')";
+					$query="INSERT INTO Aircraft_det (Aircraft_id,Aircraft_type,total_capacity,active) VALUES (?,?,?,'Yes')";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"ssi",$jet_id,$jet_type,$jet_capacity);
+					mysqli_stmt_bind_param($stmt,"ssi",$Aircraft_id,$Aircraft_type,$total_capacity);
 					mysqli_stmt_execute($stmt);
 					$affected_rows=mysqli_stmt_affected_rows($stmt);
 					//echo $affected_rows."<br>";

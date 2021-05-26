@@ -51,7 +51,7 @@
 							<td class="fix_table">Enter the aircraft name</td>
 						</tr>
 						<tr>
-							<td class="fix_table"><input type="text" name="jet_type" required></td>
+							<td class="fix_table"><input type="text" name="Aircraft_type" required></td>
 						</tr>
 					</table>
 					<br>

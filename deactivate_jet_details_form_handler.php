@@ -10,21 +10,21 @@
 			if(isset($_POST['Deactivate']))
 			{
 				$data_missing=array();
-				if(empty($_POST['jet_id']))
+				if(empty($_POST['Aircraft_id']))
 				{
 					$data_missing[]='Aircraft ID';
 				}
 				else
 				{
-					$jet_id=trim($_POST['jet_id']);
+					$Aircraft_id=trim($_POST['Aircraft_id']);
 				}
 
 				if(empty($data_missing))
 				{
 					require_once('Database Connection file/mysqli_connect.php');
-					$query="UPDATE Jet_Details SET active='No' WHERE jet_id=?";
+					$query="UPDATE Aircraft_det SET active='No' WHERE Aircraft_id=?";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"s",$jet_id);
+					mysqli_stmt_bind_param($stmt,"s",$Aircraft_id);
 					mysqli_stmt_execute($stmt);
 					$affected_rows=mysqli_stmt_affected_rows($stmt);
 					//echo $affected_rows."<br>";

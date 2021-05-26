@@ -43,17 +43,17 @@
 				<?php
 					if(isset($_GET['msg']) && $_GET['msg']=='failed')
 					{
-						echo "<strong style='color: red'>*Invalid PNR, please enter PNR again</strong>
+						echo "<strong style='color: red'>*Invalid PNR_NO, please enter PNR_NO again</strong>
 							<br>
 							<br>";
 					}
 				?>
 				<table cellpadding="5" style="margin-left: 15%;">
 					<tr>
-						<td class="fix_table">Enter the PNR</td>
+						<td class="fix_table">Enter the PNR_NO</td>
 					</tr>
 					<tr>
-						<td class="fix_table"><input type="text" name="pnr" required></td>
+						<td class="fix_table"><input type="text" name="PNR_NO" required></td>
 					</tr>
 				</table>
 				<br>

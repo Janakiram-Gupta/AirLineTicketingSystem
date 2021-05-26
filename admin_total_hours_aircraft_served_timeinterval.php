@@ -48,12 +48,12 @@
 					<div style="margin-left: 29%;">
 					<table cellpadding="5">
 						<tr>
-							<td class="fix_table">Enter the aircraft</td>
+							<td class="fix_table">Enter the Aircraft Name</td>
 							<td class="fix_table">Enter the from date</td>
 							<td class="fix_table">Enter the to date</td>
 						</tr>
 						<tr>
-							<td class="fix_table"><input type="text" name="jet_type" required></td>
+							<td class="fix_table"><input type="text" name="Aircraft_type" required></td>
 							<td class="fix_table"><input type="date" name="from_date" required></td>
 							<td class="fix_table"><input type="date" name="to_date" required></td>
 						</tr>

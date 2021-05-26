@@ -60,7 +60,7 @@
 						<td class="fix_table">Enter a valid Aircraft ID</td>
 					</tr>
 					<tr>
-						<td class="fix_table"><input type="text" name="jet_id" required></td>
+						<td class="fix_table"><input type="text" name="Aircraft_id" required></td>
 					</tr>
 				</table>
 				<br>

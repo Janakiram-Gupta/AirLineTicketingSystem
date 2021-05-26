@@ -104,23 +104,25 @@
 					$price_bus=$_POST['price_bus'];
 				}
 
-				if(empty($_POST['jet_id']))
+				if(empty($_POST['Aircraft_id']))
 				{
-					$data_missing[]='Jet ID';
+					$data_missing[]='Aircraft ID';
 				}
 				else
 				{
-					$jet_id=$_POST['jet_id'];
+					$Aircraft_id=$_POST['Aircraft_id'];
 				}
+				
+				$journey_time='NULL';
 
 				if(empty($data_missing))
 				{
 					$cnt=-1;
 					require_once('Database Connection file/mysqli_connect.php');
 
-					$query="SELECT count(*) FROM Jet_Details WHERE jet_id=? and active='Yes'";
+					$query="SELECT count(*) FROM Aircraft_det WHERE Aircraft_id=? and active='Yes'";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"s",$jet_id);
+					mysqli_stmt_bind_param($stmt,"s",$Aircraft_id);
 					mysqli_stmt_execute($stmt);
 					mysqli_stmt_bind_result($stmt,$cnt);
 					mysqli_stmt_fetch($stmt);
@@ -128,9 +130,9 @@
 
 					if($cnt==1)
 					{
-						$query="INSERT INTO Flight_Details (flight_no,from_city,to_city,departure_date,arrival_date,departure_time,arrival_time,seats_economy,seats_business,price_economy,price_business,jet_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+						$query="INSERT INTO flight_det (flight_no,from_city,to_city,departure_date,arrival_date,departure_time,arrival_time,seats_economy,seats_business,price_economy,price_business,Aircraft_id,journey_time) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 						$stmt=mysqli_prepare($dbc,$query);
-						mysqli_stmt_bind_param($stmt,"sssssssiiiis",$flight_no,$origin,$destination,$dep_date,$arr_date,$dep_time,$arr_time,$seats_eco,$seats_bus,$price_eco,$price_bus,$jet_id);
+						mysqli_stmt_bind_param($stmt,"sssssssiiiis",$flight_no,$origin,$destination,$dep_date,$arr_date,$dep_time,$arr_time,$seats_eco,$seats_bus,$price_eco,$price_bus,$Aircraft_id,$journey_time);
 						mysqli_stmt_execute($stmt);
 						$affected_rows=mysqli_stmt_affected_rows($stmt);
 						mysqli_stmt_close($stmt);

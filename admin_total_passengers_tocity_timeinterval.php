@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>
-			List of all passengers who flew to a specific city during a specific time interval
+			List of all Passengers who flew to a specific city during a specific time interval
 		</title>
 		<style>
 			input {
@@ -44,7 +44,7 @@
 		</div>
 		<form action="admin_total_passengers_tocity_timeinterval_form_handler.php" method="post">
 			<div>
-					<h2 style="margin-left: 20%;">List of all passengers who flew to a specific city during a specific time interval</h2>
+					<h2 style="margin-left: 20%;">List of all Passengers who flew to a specific city during a specific time interval</h2>
 					<div style="margin-left: 29%;">
 					<table cellpadding="5">
 						<tr>

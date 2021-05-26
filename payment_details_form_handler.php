@@ -11,9 +11,9 @@
 			{
 				$no_of_pass=$_SESSION['no_of_pass'];
 				$flight_no=$_SESSION['flight_no'];
-				$journey_date=$_SESSION['journey_date'];
+				$Journey_date=$_SESSION['Journey_date'];
 				$class=$_SESSION['class'];
-				$pnr=$_SESSION['pnr'];
+				$PNR_NO=$_SESSION['PNR_NO'];
 				$payment_id=$_SESSION['payment_id'];
 				$total_amount=$_SESSION['total_amount'];
 				$payment_date=$_SESSION['payment_date'];
@@ -22,9 +22,9 @@
 				require_once('Database Connection file/mysqli_connect.php');
 				if($class=='economy')
 				{
-					$query="UPDATE Flight_Details SET seats_economy=seats_economy-? WHERE flight_no=? AND departure_date=?";
+					$query="UPDATE flight_det SET seats_economy=seats_economy-? WHERE flight_no=? AND departure_date=?";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"iss",$no_of_pass,$flight_no,$journey_date);
+					mysqli_stmt_bind_param($stmt,"iss",$no_of_pass,$flight_no,$Journey_date);
 					mysqli_stmt_execute($stmt);
 					$affected_rows_1=mysqli_stmt_affected_rows($stmt);
 					echo $affected_rows_1.'<br>';
@@ -32,9 +32,9 @@
 				}
 				else if($class=='business')
 				{
-					$query="UPDATE Flight_Details SET seats_business=seats_business-? WHERE flight_no=? AND departure_date=?";
+					$query="UPDATE flight_det SET seats_business=seats_business-? WHERE flight_no=? AND departure_date=?";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"iss",$no_of_pass,$flight_no,$journey_date);
+					mysqli_stmt_bind_param($stmt,"iss",$no_of_pass,$flight_no,$Journey_date);
 					mysqli_stmt_execute($stmt);
 					$affected_rows_1=mysqli_stmt_affected_rows($stmt);
 					echo $affected_rows_1.'<br>';
@@ -50,9 +50,9 @@
 				{
 					echo "Successfully Updated Seats<br>";
 
-					$query="INSERT INTO Payment_Details (payment_id,pnr,payment_date,payment_amount,payment_mode) VALUES (?,?,?,?,?)";
+					$query="INSERT INTO payment_det (payment_id,PNR_NO,payment_date,payment_amount,payment_mode) VALUES (?,?,?,?,?)";
 					$stmt=mysqli_prepare($dbc,$query);
-					mysqli_stmt_bind_param($stmt,"sssis",$payment_id,$pnr,$payment_date,$total_amount,$payment_mode);
+					mysqli_stmt_bind_param($stmt,"sssis",$payment_id,$PNR_NO,$payment_date,$total_amount,$payment_mode);
 					mysqli_stmt_execute($stmt);
 					$affected_rows_2=mysqli_stmt_affected_rows($stmt);
 					echo $affected_rows_2.'<br>';

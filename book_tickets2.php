@@ -57,7 +57,7 @@
 			$flight_no=$_POST['select_flight'];
 			$_SESSION['flight_no']=$flight_no;
 			//$pass_name=array();
-			echo "<h2>ADD PASSENGERS DETAILS</h2>";
+			echo "<h2>ADD passengers_det DETAILS</h2>";
 			echo "<form action=\"add_ticket_details_form_handler.php\" method=\"post\">";
 			while($count<=$no_of_pass)
 			{
@@ -68,7 +68,7 @@
 					echo "<td class=\"fix_table_short\">Passenger's Age</td>";
 					echo "<td class=\"fix_table_short\">Passenger's Gender</td>";
 					echo "<td class=\"fix_table_short\">Passenger's Inflight Meal</td>";
-					echo "<td class=\"fix_table_short\">Passenger's Frequent Flier ID (if applicable)</td>";
+					echo "<td class=\"fix_table_short\" style=\"display: none;\">Passenger's Frequent Flier ID (if applicable)</td>";
 					echo "</tr>";
 					echo "<tr>";
 					echo "<td class=\"fix_table_short\"><input type=\"text\" name=\"pass_name[]\" required></td>";
@@ -86,7 +86,7 @@
   					echo "<option value=\"no\">No</option>";
   					echo "</select>";
   					echo "</td>";
-  					echo "<td class=\"fix_table_short\"><input type=\"text\" name=\"pass_ff_id[]\"></td>";
+					echo "<td class=\"fix_table_short\" style=\"display: none;\"><input type=\"text\" name=\"pass_ff_id[]\"></td>";
 					echo "</tr>";
 					echo "</table>";
 					echo "<br><hr>";

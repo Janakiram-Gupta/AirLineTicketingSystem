@@ -74,7 +74,7 @@
 				}
 				if(empty($_POST['no_of_pass']))
 				{
-					$data_missing[]='No. of Passengers';
+					$data_missing[]='No. of passengers_det';
 				}
 				else
 				{
@@ -96,11 +96,11 @@
 					$_SESSION['class']=$class;
 					$count=1;
 					$_SESSION['count']=$count;
-					$_SESSION['journey_date']=$dep_date;
+					$_SESSION['Journey_date']=$dep_date;
 					require_once('Database Connection file/mysqli_connect.php');
 					if($class=="economy")
 					{
-						$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time,price_economy FROM Flight_Details where from_city=? and to_city=? and departure_date=? and seats_economy>=? ORDER BY  price_economy";
+						$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time,price_economy FROM flight_det where from_city=? and to_city=? and departure_date=? and seats_economy>=? ORDER BY  price_economy";
 						$stmt=mysqli_prepare($dbc,$query);
 						mysqli_stmt_bind_param($stmt,"sssi",$origin,$destination,$dep_date,$no_of_pass);
 						mysqli_stmt_execute($stmt);
@@ -142,7 +142,7 @@
 					}
 					else if($class="business")
 					{
-						$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time,price_business FROM Flight_Details where from_city=? and to_city=? and departure_date=? and seats_business>=? ORDER BY  price_business";
+						$query="SELECT flight_no,from_city,to_city,departure_date,departure_time,arrival_date,arrival_time,price_business FROM flight_det where from_city=? and to_city=? and departure_date=? and seats_business>=? ORDER BY  price_business";
 						$stmt=mysqli_prepare($dbc,$query);
 						mysqli_stmt_bind_param($stmt,"sssi",$origin,$destination,$dep_date,$no_of_pass);
 						mysqli_stmt_execute($stmt);
