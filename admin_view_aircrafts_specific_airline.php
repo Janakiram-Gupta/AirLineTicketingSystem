@@ -48,10 +48,10 @@
 					<div style="margin-left: 29%;">
 					<table cellpadding="5">
 						<tr>
-							<td class="fix_table">Enter the aircraft name</td>
+							<td class="fix_table">Enter the Airline name</td>
 						</tr>
 						<tr>
-							<td class="fix_table"><input type="text" name="Aircraft_type" required></td>
+							<td class="fix_table"><input type="text" name="Airlines_Name" required></td>
 						</tr>
 					</table>
 					<br>

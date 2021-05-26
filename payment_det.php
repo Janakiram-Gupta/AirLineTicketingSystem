@@ -151,7 +151,7 @@
 				?>
 				<table cellpadding="5">
 					<tr>
-						<td class="fix_table"><strong>Enter the Payment Mode:-</strong></td>
+						<td class="fix_table"><strong>Select the Payment Mode:-</strong></td>
 					</tr>
 					<tr>
 						<td class="fix_table"><i class="fa fa-credit-card" aria-hidden="true"></i> Credit Card <input type="radio" name="payment_mode" value="credit card" checked></td>

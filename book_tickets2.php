@@ -57,7 +57,7 @@
 			$flight_no=$_POST['select_flight'];
 			$_SESSION['flight_no']=$flight_no;
 			//$pass_name=array();
-			echo "<h2>ADD passengers_det DETAILS</h2>";
+			echo "<h2>ADD PASSENGERS DETAILS</h2>";
 			echo "<form action=\"add_ticket_details_form_handler.php\" method=\"post\">";
 			while($count<=$no_of_pass)
 			{

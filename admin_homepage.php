@@ -38,47 +38,43 @@
 				</tr>
 				
 				<tr>
-					<td class="admin_func"><a href="admin_total_hours_aircraft_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 3. Total hours that a specific aircraft has served during a specific time interval</a>
+					<td class="admin_func"><a href="admin_total_hours_aircraft_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> Total hours that a specific aircraft has served during a specific time interval</a>
 					</td>
 				</tr>
 				
 				<tr>
-					<td class="admin_func"><a href="admin_view_aircrafts_specific_airline.php"><i class="fa fa-plane" aria-hidden="true"></i> 4. Total number of aircrafts belonging to a specific airline </a>
+					<td class="admin_func"><a href="admin_view_aircrafts_specific_airline.php"><i class="fa fa-plane" aria-hidden="true"></i>  Total number of aircrafts belonging to a specific airline </a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_view_specific_time_travelled.php"><i class="fa fa-plane" aria-hidden="true"></i> 	5. Total number of hours that a specific passenger has travelled during a specific time interval </a>
+					<td class="admin_func"><a href="admin_view_specific_time_travelled.php"><i class="fa fa-plane" aria-hidden="true"></i>  Total number of hours that a specific passenger has travelled during a specific time interval </a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_total_hours_airline_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 6. Total number of hours that a specific airline has been running during a specific time interval</a>
+					<td class="admin_func"><a href="admin_total_hours_airline_served_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i>  Total number of hours that a specific airline has been running during a specific time interval</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_total_passengers_tocity_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i> 7. List of all Passengers who flew to a specific city during a specific time interval</a>
+					<td class="admin_func"><a href="admin_total_passengers_tocity_timeinterval.php"><i class="fa fa-plane" aria-hidden="true"></i>  List of all Passengers who flew to a specific city during a specific time interval</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_most_visited_city_lastmonth.php"><i class="fa fa-plane" aria-hidden="true"></i> 8. Most visited city during the last month</a>
+					<td class="admin_func"><a href="admin_most_visited_city_lastmonth.php"><i class="fa fa-plane" aria-hidden="true"></i>  Most visited city during the last month</a>
 					</td>
 				</tr>
 				
 				<tr>
-					<td class="admin_func"><a href="admin_view_Airline_not_active.php"><i class="fa fa-plane" aria-hidden="true"></i> 9. List of aircrafts that have not been in used from a specific source location.</a>
+					<td class="admin_func"><a href="admin_view_Airline_not_active.php"><i class="fa fa-plane" aria-hidden="true"></i>  List of aircrafts that have not been in used from a specific source location.</a>
 					</td>
 				</tr>
 				<tr>
-					<td class="admin_func"><a href="admin_view_Airline_specific.php"><i class="fa fa-plane" aria-hidden="true"></i> 10. List of airlines that run flight from a specific source to a destination</a>
+					<td class="admin_func"><a href="admin_view_Airline_specific.php"><i class="fa fa-plane" aria-hidden="true"></i>  List of airlines that run flight from a specific source to a destination</a>
 					</td>
 				</tr>
 				<tr>
 					<td class="admin_func"><a href="add_flight_details.php"><i class="fa fa-plane" aria-hidden="true"></i> Add Flight Schedule Details</a>
 					</td>
 				</tr>
-				<!-- <tr>
-					<td class="admin_func"><a href="modify_flight_details.php"><i class="fa fa-plane" aria-hidden="true"></i> Modify Flight Schedule Details</a>
-					</td>
-				</tr> -->
 				<tr>
 					<td class="admin_func"><a href="delete_flight_details.php"><i class="fa fa-plane" aria-hidden="true"></i> Delete Flight Schedule Details</a>
 					</td>
